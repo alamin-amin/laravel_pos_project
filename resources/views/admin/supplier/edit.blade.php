@@ -5,7 +5,7 @@
         <div class="container-fluid my-1">
             <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h1>Add Suppliers</h1>
+                    <h1>Edit Suppliers</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('suppliers.index') }}" class="btn btn-primary">Back</a>
@@ -24,7 +24,7 @@
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Name</label>
-                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Name">
+                                    <input type="text" name ="name" value="{{ $supplier->name }}" id ="name" class="form-control" placeholder="Name">
                                     <p></p>	
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Email</label>
-                                    <input type="text" name ="email" id ="email" class="form-control" placeholder="Enter your email">
+                                    <input type="text" name ="email" value="{{ $supplier->email }}" id ="email" class="form-control" placeholder="Enter your email">
                                     <p></p>	
                                 </div>
                             </div>
@@ -40,17 +40,18 @@
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Phone</label>
-                                    <input type="text" name ="phone" id ="phone" class="form-control" placeholder="Enter your phone number">
+                                    <input type="text" name ="phone" value="{{ $supplier->phone }}" id ="phone" class="form-control" placeholder="Enter your phone number">
                                     <p></p>	
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Address</label>
-                                    <input type="text" name ="address" id ="address" class="form-control" placeholder="Address">
+                                    <input type="text" name ="address" value="{{ $supplier->address }}" id ="address" class="form-control" placeholder="Address">
                                     <p></p>	
                                 </div>
-                            </div>					
+                            </div>
+                    				
                         </div>
                     </div>							
                 </div>

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\HomeController;
+use App\Http\Controllers\admin\SupplierController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -70,6 +71,14 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/customers/{customer}/edit',[CustomerController::class,'edit'])->name('customers.edit');
         Route::put('/customers/{customer}',[CustomerController::class,'update'])->name('customers.update');
         Route::get('/customers/{customer}',[CustomerController::class,'destroy'])->name('customers.delete');
+
+        // Supplier Route..................
+        Route::get('/suppliers',[SupplierController::class,'index'])->name('suppliers.index');
+        Route::get('/suppliers/create',[SupplierController::class,'create'])->name('suppliers.create');
+        Route::post('/suppliers',[SupplierController::class,'store'])->name('suppliers.store');
+        Route::get('/suppliers/{supplier}/edit',[SupplierController::class,'edit'])->name('suppliers.edit');
+        Route::put('/suppliers/{supplier}/',[SupplierController::class,'update'])->name('suppliers.update');
+        Route::get('/suppliers/{supplier}/',[SupplierController::class,'destroy'])->name('suppliers.delete');
       
 
         // product Route...........

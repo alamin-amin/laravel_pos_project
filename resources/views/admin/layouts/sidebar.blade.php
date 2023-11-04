@@ -87,6 +87,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('suppliers.index') }}" class="nav-link">
+                        <i class="nav-icon  fas fa-users"></i>
+                        <p>Suppliers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('employee.index') }}" class="nav-link">
                         <i class="fa-solid fa-user-tie "> </i> 
                         <p class="pl-2">Employee</p>
