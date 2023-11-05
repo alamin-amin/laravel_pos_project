@@ -6,7 +6,7 @@
         <div class="container-fluid my-2">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>All Products</h1>
+                    <h1> <i class="fa-solid fa-list-check"></i> All Products</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('product.create') }}" class="btn btn-primary"> Add New Product</a>

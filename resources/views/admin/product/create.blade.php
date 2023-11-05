@@ -65,6 +65,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
+                                    <label for="name">Buying price</label>
+                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Sub Category">
+                                    <p></p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
                                     <label for="name">Sku</label>
                                     <input type="text" name ="sku" id ="name" class="form-control" placeholder="Sku">
                                     <p></p>	

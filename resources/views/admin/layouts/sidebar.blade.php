@@ -16,20 +16,20 @@
                     with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link text-dark">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        <i class="fa-solid fa-chart-column"></i>
+                        <p class="pl-2">Dashboard</p>
                     </a>																
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('categories.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('sub-categories.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
-                        <p>Sub Category</p>
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                        <p class="pl-2">Sub Category</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -55,9 +55,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('customers.index') }}" class="nav-link text-dark">
-                        <i class="nav-icon fas fa-wand-magic-sparkles"></i>
+                        <i class="fa-solid fa-people-carry-box"></i>
                         {{-- <i class="fa-solid fa-wand-magic-sparkles"></i> --}}
-                        <p>Customers</p>
+                        <p class="pl-2">Customers</p>
                     </a>
                 </li>
                 
@@ -88,8 +88,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('suppliers.index') }}" class="nav-link">
-                        <i class="nav-icon  fas fa-users"></i>
-                        <p>Suppliers</p>
+                        <i class="fa-solid fa-people-arrows"></i>
+                        <p class="pl-2">Suppliers</p>
                     </a>
                 </li>
                 <li class="nav-item">

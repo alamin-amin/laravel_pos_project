@@ -5,7 +5,7 @@
     <div class="container-fluid my-1">
         <div class="row mb-1">
             <div class="col-sm-6">
-                <h1>Sub Categories</h1>
+                <h1><i class="fa-solid fa-list"></i> Sub Categories</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('sub-categories.create') }}" class="btn btn-primary">Add Sub Category</a>
