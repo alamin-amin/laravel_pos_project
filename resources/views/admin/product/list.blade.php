@@ -9,7 +9,7 @@
                     <h1> <i class="fa-solid fa-list-check"></i> All Products</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('product.create') }}" class="btn btn-primary"> Add New Product</a>
+                    <a href="{{ route('products.create') }}" class="btn btn-primary"> Add New Product</a>
                 </div>
             </div>
         </div>

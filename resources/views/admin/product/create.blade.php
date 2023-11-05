@@ -8,7 +8,7 @@
                     <h1>Add Product</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('categories.index') }}" class="btn btn-primary">Back</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>
@@ -16,36 +16,87 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <form action="" method="post" name ="categoryForm" id ="categoryForm">
+            <form action="{{ route('products.store')}}" method="post" name ="productForm" id ="productForm" enctype="multipart/form-data">
+                @csrf
                 <div class="card">
                     <div class="card-body">								
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Product Name</label>
-                                    <input type="text" name ="name" id ="product_name" class="form-control" placeholder="Name">
+                                    <input type="text" name ="product_name" id ="product_name" class="form-control" placeholder="Name">
                                     <p></p>	
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Category Name</label>
-                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Category Name">
-                                    <p></p>	
+                                         @php
+                                             $category = DB::table('categories')->get();
+                                        @endphp
+                                        <select name="category_id" id="category_id" class="form-control">
+                                            <option value=""> Select a category</option>
+                                            @foreach ($category as $row)
+                                                 <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Sub Category Name</label>
-                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Sub Category">
-                                    <p></p>	
+                                    @php
+                                        $sub_categories = DB::table('sub_categories')->get();
+                                    @endphp
+                                    <select name="sub_category_id	" id="sub_category_id" class="form-control">
+                                        <option value=""> Select a sub category</option>
+                                        @foreach ($sub_categories as $row)
+                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Unit</label>
-                                    <input type="text" name ="unit" id ="unit" class="form-control" placeholder="Unit">
-                                    <p></p>	
+                                    @php
+                                        $units = DB::table('units')->get();
+                                    @endphp
+                                    <select name="unit_id" id="category_id" class="form-control">
+                                        <option value=""> Select a unit</option>
+                                        @foreach ($units as $row)
+                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="name">Brands Nmae</label>
+                                    @php
+                                        $brands = DB::table('brands')->get();
+                                    @endphp
+                                    <select name="brand_id" id="category_id" class="form-control">
+                                        <option value=""> Select a Brand</option>
+                                        @foreach ($brands as $row)
+                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="name">Suppliers Nmae</label>
+                                    @php
+                                    $suppliers = DB::table('suppliers')->get();
+                                @endphp
+                                <select name="supplier_id" id="category_id" class="form-control">
+                                    <option value=""> Select a Supplier</option>
+                                    @foreach ($suppliers as $row)
+                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                                    @endforeach
+                                </select>
                                 </div>
                             </div>
                       
@@ -58,15 +109,22 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
+                                    <label for="name">Product Code</label>
+                                    <input type="text" name ="product_code" id ="description" class="form-control" placeholder="Description">
+                                    <p></p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
                                     <label for="name">Salliing price</label>
-                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Sub Category">
+                                    <input type="text" name ="selling_price" id ="selling_price" class="form-control" placeholder="Sub Category">
                                     <p></p>	
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Buying price</label>
-                                    <input type="text" name ="name" id ="name" class="form-control" placeholder="Sub Category">
+                                    <input type="text" name ="buying_price" id ="name" class="form-control" placeholder="Sub Category">
                                     <p></p>	
                                 </div>
                             </div>
@@ -91,7 +149,7 @@
                                 <div class="mb-2">
                                     <img id="image" src="#" >
                                     <label for="name">Picture</label><br>
-                                    <input type="file" name ="photo" id ="photo" accept="image/*" class="upload" required onchange="readURL(this);">
+                                    <input type="file" name ="product_image" id ="photo" accept="image/*" class="upload" required onchange="readURL(this);">
                                     <p></p>	
                                 </div>
                             </div>										
@@ -100,7 +158,7 @@
                 </div>
                 <div class="pb-2 pt-1">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="{{ route('categories.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                    <a href="{{ route('products.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
                 </div>
             </form>
         </div>
@@ -109,58 +167,7 @@
 
 @section('customJs')
     <script>
-        $('#categoryForm').submit(function(event){
-            event.preventDefault();
-            var element= $(this);
-            $("button[type=submit]").prop ('disabled',true);
-            $.ajax({
-                url:'{{ route("categories.store") }}',
-                type:'post',
-                data: element.serializeArray(),
-                dataType:'json',
-                success:function(response){
-                    if(response["status"]==true){
-                        window.location.href="{{ route('categories.index') }}";
-                        $('#name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-
-                        $("#slug").removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-                    }else{
-                        
-                        var errors = response['errors'];
-                        if(errors['name']){
-                            $("#name").addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['name']);
-                        }else{
-                            $('#name').removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-                        }
-
-
-                        if(errors['slug']){
-                            $('#slug').addClass('is-invalid').siblings('p').addClass('invalid-feedback').html(errors['slug']);
-                        }else{
-                            $("#slug").removeClass('is-invalid').siblings('p').removeClass('invalid-feedback').html("");
-                        }
-                    }  
-                }, error:function(jqXHR, exception){
-                    console.log('Somethin want wrong');
-                }
-            })
-        });
-
-            
-        $("#name").change(function(){
-                element= $(this);
-                $.ajax({
-                    url:'{{ route("getSlug") }}',
-                    type:'get',
-                data: {title: element.val()},
-                dataType:'json',
-                    success:function(response){
-                        if(response["status"]==true){
-                            $('#slug').val()
-                        }
-                    }
-                });
-         });  
+       
    
     </script>
 @endsection
