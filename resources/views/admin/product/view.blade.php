@@ -16,87 +16,54 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('products.store')}}" method="post" name ="productForm" id ="productForm" enctype="multipart/form-data">
-                @csrf
+            
                 <div class="card">
                     <div class="card-body">								
                         <div class="row">
+                            <img src="{{ URL::to($products->product_image) }}" alt="">
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Product Name</label>
-                                    <input type="text" name ="product_name" id ="product_name" class="form-control" placeholder="Name">
-                                    <p></p>	
+                                     
+                                    <p>{{ $products->product_name }}</p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="name">Product Name</label>
+                                     
+                                    <p>{{ $products->description }}</p>	
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Category Name</label>
-                                         @php
-                                             $category = DB::table('categories')->get();
-                                        @endphp
-                                        <select name="category_id" id="category_id" class="form-control">
-                                            <option value=""> Select a category</option>
-                                            @foreach ($category as $row)
-                                                 <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                            @endforeach
-                                        </select>
+                                       <p>{{ $products->category_id }}</p>
                                     
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Sub Category Name</label>
-                                    @php
-                                        $sub_categories = DB::table('sub_categories')->get();
-                                    @endphp
-                                    <select name="sub_category_id" id="sub_category_id" class="form-control">
-                                        <option value=""> Select a sub category</option>
-                                        @foreach ($sub_categories as $row)
-                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
+                                   
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Unit</label>
-                                    @php
-                                        $units = DB::table('units')->get();
-                                    @endphp
-                                    <select name="unit_id" id="category_id" class="form-control">
-                                        <option value=""> Select a unit</option>
-                                        @foreach ($units as $row)
-                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
+                                   
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Brands Nmae</label>
-                                    @php
-                                        $brands = DB::table('brands')->get();
-                                    @endphp
-                                    <select name="brand_id" id="category_id" class="form-control">
-                                        <option value=""> Select a Brand</option>
-                                        @foreach ($brands as $row)
-                                                <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                        @endforeach
-                                    </select>
+                                  
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Suppliers Nmae</label>
-                                    @php
-                                    $suppliers = DB::table('suppliers')->get();
-                                @endphp
-                                <select name="supplier_id" id="category_id" class="form-control">
-                                    <option value=""> Select a Supplier</option>
-                                    @foreach ($suppliers as $row)
-                                            <option value="{{ $row->id }}">{{ $row->name }}</option>
-                                    @endforeach
-                                </select>
+                                    <p>{{ $products->description }}</p>	
                                 </div>
                             </div>
                       
@@ -125,7 +92,7 @@
                                 <div class="mb-2">
                                     <label for="name">Buying price</label>
                                     <input type="text" name ="buying_price" id ="name" class="form-control" placeholder="Sub Category">
-                                    <p></p>	
+                                    <p>{{ $products->buying_price }}</p>	
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -156,11 +123,7 @@
                         </div>
                     </div>							
                 </div>
-                <div class="pb-2 pt-1">
-                    <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="{{ route('products.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
-                </div>
-            </form>
+              
         </div>
     </section>
 @endsection
@@ -168,17 +131,6 @@
 @section('customJs')
     <script>
        
-       function readURL(input){
-            if(input.files && input.files[0]){
-                var reader = new FileReader();
-                reader.onload = function (e){
-                    $('#image')
-                    .attr('src',e.target.result)
-                    .width(60)
-                    .height(50);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-         }
+       
     </script>
 @endsection

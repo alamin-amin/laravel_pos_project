@@ -54,6 +54,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('suppliers.index') }}" class="nav-link">
+                        <i class="fa-solid fa-people-arrows"></i>
+                        <p class="pl-2">Suppliers</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('customers.index') }}" class="nav-link text-dark">
                         <i class="fa-solid fa-people-carry-box"></i>
                         {{-- <i class="fa-solid fa-wand-magic-sparkles"></i> --}}
@@ -86,12 +92,7 @@
                         <p>Users</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('suppliers.index') }}" class="nav-link">
-                        <i class="fa-solid fa-people-arrows"></i>
-                        <p class="pl-2">Suppliers</p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="{{ route('employee.index') }}" class="nav-link">
                         <i class="fa-solid fa-user-tie "> </i> 

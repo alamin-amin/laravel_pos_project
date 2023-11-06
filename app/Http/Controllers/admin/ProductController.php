@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\product;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -67,4 +69,32 @@ class ProductController extends Controller
        
          }
     }
+    public function view ($id) {
+       $products = DB::table('products')
+       ->join('categories','products.category_id','categories.id')
+       ->join('sub_categories','products.sub_category_id','sub_categories.id')
+        ->join('brands','products.brand_id','brands.id')
+        ->join('units','products.unit_id','units.id')
+       ->select('categories.name','units.name','products.*','units.name')
+      
+
+      -> where ('products.id',$id ) 
+      ->first();
+      echo '<pre>';
+      print_r($products);
+      exit();
+    // return view('admin.product.view',compact('products'));
+    }
+    public function edit(product $product){
+        return view('admin.product.edit',compact('product'));
+        
+    }
+
+    public function destroy($id){
+        $products = product::find($id);
+        $products->delete();
+        return redirect()->route('products.index')->with('success','Product delete successful!');
+
+    }
+
 }
