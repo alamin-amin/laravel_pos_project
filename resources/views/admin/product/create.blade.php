@@ -49,7 +49,7 @@
                                     @php
                                         $sub_categories = DB::table('sub_categories')->get();
                                     @endphp
-                                    <select name="sub_category_id	" id="sub_category_id" class="form-control">
+                                    <select name="sub_category_id" id="sub_category_id" class="form-control">
                                         <option value=""> Select a sub category</option>
                                         @foreach ($sub_categories as $row)
                                                 <option value="{{ $row->id }}">{{ $row->name }}</option>
@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Product Code</label>
-                                    <input type="text" name ="product_code" id ="description" class="form-control" placeholder="Description">
+                                    <input type="text" name ="Product_code" id ="description" class="form-control" placeholder="Description">
                                     <p></p>	
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                 <div class="mb-2">
                                     <img id="image" src="#" >
                                     <label for="name">Picture</label><br>
-                                    <input type="file" name ="product_image" id ="photo" accept="image/*" class="upload" required onchange="readURL(this);">
+                                    <input type="file" name ="product_image" id ="photo" accept="image/*" class="upload" onchange="readURL(this);">
                                     <p></p>	
                                 </div>
                             </div>										
