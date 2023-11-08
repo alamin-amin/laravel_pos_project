@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\admin\BrandController;
 use App\Http\Controllers\admin\CustomerController;
+use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\UnitController;
+use App\Http\Controllers\ExpensesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\CategoryController;
@@ -103,6 +105,14 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/employee/{data}',[EmployeeController::class,'destroy'])->name('employee.delete');
         
 
+        Route::get('/expenses',[ExpenseController::class,'index'])->name('expenses.index');
+        Route::get('/expenses/create',[ExpenseController::class,'create'])->name('expenses.create');
+        Route::post('/expenses',[ExpenseController::class,'store'])->name('expenses.store');
+        Route::get('/expenses/{expense}/edit',[ExpenseController::class,'edit'])->name('expenses.edit');
+        Route::put('/expenses/{expense}',[ExpenseController::class,'update'])->name('expenses.update');
+        Route::get('/expenses/{expense}',[ExpenseController::class,'destroy'])->name('expenses.delete');
+
+        Route::get('/today-expenses',[ExpenseController::class,'TodayExpense'])->name('expenses.TodayExpense');
 
 
 

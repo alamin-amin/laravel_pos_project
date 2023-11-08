@@ -16,7 +16,6 @@ class ProductController extends Controller
         if(!empty($request->get('keyword'))){
             $products = $products->where('name','like','%'.$request->get('keyword').'%');
         }
-
         $products= $products->paginate(5);
         return view('admin.product.list',compact('products'));
     }
@@ -69,7 +68,7 @@ class ProductController extends Controller
        
          }
     }
-    public function view ($id) {
+    public function view ($id){
        $products = DB::table('products')
        ->join('categories','products.category_id','categories.id')
        ->join('sub_categories','products.sub_category_id','sub_categories.id')
@@ -83,28 +82,19 @@ class ProductController extends Controller
         'units.name as unitName',
         'suppliers.name as supplierName',
         'products.*',
-
        )
-      
-
       -> where ('products.id',$id ) 
       ->first();
-    //   echo '<pre>';
-    //   print_r($products);
-    //   exit();
-   return view('admin.product.view',compact('products'));
+        return view('admin.product.view',compact('products'));
     }
     public function edit(product $product){
-
-        return view('admin.product.edit',compact('product'));
-        
+        return view('admin.product.edit',compact('product'));       
     }
     public function update(Request $request, product $product){
         $products['product_name'] = $request->product_name;
         $products['description'] = $request->description;
         $products['Product_code'] = $request->Product_code;
        
-
         $image = $request->product_image;
         if($image){
         $imageName = time().'.'.$image->getClientOriginalExtension();
@@ -120,7 +110,7 @@ class ProductController extends Controller
     public function destroy($id){
         $products = product::find($id);
         $products->delete();
-        return redirect()->route('products.index')->with('success','Product delete successful!');
+        return redirect()->route('products.index')->with('danger','Product delete successful!');
 
     }
 

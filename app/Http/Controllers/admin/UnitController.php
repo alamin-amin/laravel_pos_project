@@ -45,14 +45,12 @@ class UnitController extends Controller
         $units['name'] = $request->name;
         $units['status'] = $request->status;
         $unit ->update($units);
-        return redirect()->route('units.index');
+        return redirect()->route('units.index')->with('success','Unit update successful!');
     }
     public function destroy($id){
         $units = unit::find($id);
         $units->delete();
         return redirect()->route('units.index')->with('success','Unit delete successful!');
-
-    
     }
 
 }
