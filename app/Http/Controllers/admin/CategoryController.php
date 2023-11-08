@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\category;
+use Illuminate\Support\Str;
 use Faker\Core\File;
 use Spatie\FlareClient\Http\Exceptions\NotFound;
 

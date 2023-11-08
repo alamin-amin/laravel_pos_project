@@ -79,7 +79,7 @@ class ProductController extends Controller
       
 
       -> where ('products.id',$id ) 
-      ->first();
+      ->get();
       echo '<pre>';
       print_r($products);
       exit();
