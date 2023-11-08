@@ -86,9 +86,27 @@ class ProductController extends Controller
     // return view('admin.product.view',compact('products'));
     }
     public function edit(product $product){
+
         return view('admin.product.edit',compact('product'));
         
     }
+    public function update(Request $request, product $product){
+        $products['product_name'] = $request->product_name;
+        $products['description'] = $request->description;
+        $products['Product_code'] = $request->Product_code;
+       
+
+        $image = $request->product_image;
+        if($image){
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $request->product_image->move('product_image',$imageName);
+        $product ->product_image = $imageName;
+        }
+        $products['status'] = $request->status;
+        $product->update( $products);
+        return redirect()->route('products.index')->with('success','product updated successful!');
+    }
+
 
     public function destroy($id){
         $products = product::find($id);

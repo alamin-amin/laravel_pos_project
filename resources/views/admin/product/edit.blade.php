@@ -16,8 +16,9 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('products.store') }}" method="post" name ="categoryForm" id ="categoryForm" enctype="multipart/form-data">
+            <form action="{{ route('products.update',$product->id) }}" method="post" name ="categoryForm" id ="categoryForm" enctype="multipart/form-data">
                 @csrf
+                @method("put")
                 <div class="card">
                     <div class="card-body">								
                         <div class="row">
@@ -28,9 +29,6 @@
                                     <p></p>	
                                 </div>
                             </div>
-                           
-                           
-        
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Description</label>
@@ -53,17 +51,23 @@
                                         <option {{ ($product->status ==0) ?'selected': '' }} value="0">Block</option>
                                     </select>
                                 </div>
-                            </div>	
+                            </div>
+                            
+                            
                             <div class="col-md-6">
-                                <div class="mb-2">
-                                    <label for="name">Product Images</label>
-                                    <input type="" name ="product_image" value="{{$product ->product_image }}" id ="email" class="form-control" placeholder="Enter your email">
-                                    <p></p>	
+                                    <div class="mb-2">
+                                        <label for="">Product Images</label>
+                                        <img src="/product_image/{{ $product ->product_image }}" alt="" style ="height: 60px; width:70px">
+                                    </div>
+                            </div>	
+                            <div class="col-md-6>
+                                <div class = " mb-2">
+                                    <label for="image">Update Images</label>
+                                    <input type="file" name ="product_image" class="form-control" placeholder="image"/>	
                                 </div>
                             </div>	
-                            					
-                        </div>
-                    </div>							
+                        </div>				
+                    </div>						
                 </div>
                 <div class="pb-2 pt-1">
                     <button type="submit" class="btn btn-primary">Update</button>
