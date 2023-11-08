@@ -75,20 +75,47 @@ class ProductController extends Controller
        ->join('sub_categories','products.sub_category_id','sub_categories.id')
         ->join('brands','products.brand_id','brands.id')
         ->join('units','products.unit_id','units.id')
-       ->select('categories.name','units.name','products.*','units.name')
+        ->join('suppliers','products.supplier_id','suppliers.id')
+       ->select(
+        'categories.name as categoryName',
+        'sub_categories.name as subCategoryName',
+        'brands.name as brandName',
+        'units.name as unitName',
+        'suppliers.name as supplierName',
+        'products.*',
+
+       )
       
 
       -> where ('products.id',$id ) 
-      ->get();
-      echo '<pre>';
-      print_r($products);
-      exit();
-    // return view('admin.product.view',compact('products'));
+      ->first();
+    //   echo '<pre>';
+    //   print_r($products);
+    //   exit();
+   return view('admin.product.view',compact('products'));
     }
     public function edit(product $product){
+
         return view('admin.product.edit',compact('product'));
         
     }
+    public function update(Request $request, product $product){
+        $products['product_name'] = $request->product_name;
+        $products['description'] = $request->description;
+        $products['Product_code'] = $request->Product_code;
+       
+
+        $image = $request->product_image;
+        if($image){
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $request->product_image->move('product_image',$imageName);
+        $product ->product_image = $imageName;
+        }
+        $products['status'] = $request->status;
+        $product->update( $products);
+        return redirect()->route('products.index')->with('success','product updated successful!');
+    }
+
 
     public function destroy($id){
         $products = product::find($id);

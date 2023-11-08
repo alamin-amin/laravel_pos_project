@@ -5,7 +5,7 @@
         <div class="container-fluid my-1">
             <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h1>Add Product</h1>
+                    <h1>Single Product Data</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>
@@ -18,108 +18,89 @@
         <div class="container-fluid">
             
                 <div class="card">
-                    <div class="card-body">								
+                    <div class="card-body pl-5" style=width:900px>								
                         <div class="row">
-                            <img src="{{ URL::to($products->product_image) }}" alt="">
-                            <div class="col-md-6">
+                            <div class="col-12 mb-3 ">
+                                <img src="/product_image/{{ $products ->product_image }}" alt="" style="height: 150px;width:260px; border-radius:5%";>
+                            </div>
+                           
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Product Name</label>
-                                     
+                                    <h4 for="name">Product Name :</h4>
                                     <p>{{ $products->product_name }}</p>	
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                           
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Product Name</label>
-                                     
-                                    <p>{{ $products->description }}</p>	
+                                    <h4 class="fs-5" for="name">Category Name :</h4>
+                                       <p>{{ $products->categoryName }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Category Name</label>
-                                       <p>{{ $products->category_id }}</p>
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-2">
-                                    <label for="name">Sub Category Name</label>
+                                    <h4 for="name">Sub Category Name :</h4>
+                                    <p>{{ $products->subCategoryName}}</p>
                                    
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Unit</label>
-                                   
+                                    <h4 for="name">Unit :</h4>
+                                    <p>{{ $products->unitName}}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Brands Nmae</label>
-                                  
+                                    <h4 for="name">Brands Nmae :</h4>
+                                    <p>{{ $products->brandName}}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Suppliers Nmae</label>
-                                    <p>{{ $products->description }}</p>	
+                                    <h5 for="name">Suppliers Nmae :</h5>
+                                    <p>{{ $products->supplierName }}</p>	
                                 </div>
                             </div>
                       
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Description</label>
-                                    <input type="text" name ="description" id ="description" class="form-control" placeholder="Description">
-                                    <p></p>	
+                                    <h5 for="name">Description :</h5>
+                                    <p>{{ $products->description }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Product Code</label>
-                                    <input type="text" name ="Product_code" id ="description" class="form-control" placeholder="Description">
-                                    <p></p>	
+                                    <h5 for="name">Product Code :</h5>
+                                    <p>{{ $products->Product_code }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Salliing price</label>
-                                    <input type="text" name ="selling_price" id ="selling_price" class="form-control" placeholder="Sub Category">
-                                    <p></p>	
+                                    <h5 for="name">Salliing price :</h5>
+                                    <p>{{ $products->selling_price }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Buying price</label>
-                                    <input type="text" name ="buying_price" id ="name" class="form-control" placeholder="Sub Category">
+                                    <h5 for="name">Buying price :</h5>
                                     <p>{{ $products->buying_price }}</p>	
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="name">Sku</label>
-                                    <input type="text" name ="sku" id ="name" class="form-control" placeholder="Sku">
-                                    <p></p>	
+                                    <h5 for="name">Sku :</h5>
+                                    <p>{{ $products->sku }}</p>
+                                    
                                 </div>
                             </div>
                             								
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-2">
-                                    <label for="status">Status</label>
-                                    <select name="status" id="status" class="form-control">
-                                        <option value="1">Active</option>
-                                        <option value="0">Block</option>
-                                    </select>
+                                    <h5 for="status">Status :</h5>
+                                    <p>{{ $products->status }}</p>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-2">
-                                    <img id="image" src="#" >
-                                    <label for="name">Picture</label><br>
-                                    <input type="file" name ="product_image" id ="photo" accept="image/*" class="upload" onchange="readURL(this);">
-                                    <p></p>	
-                                </div>
-                            </div>										
+                            </div>						
                         </div>
                     </div>							
                 </div>

@@ -49,11 +49,11 @@ class SupplierController extends Controller
         $suppliers['phone'] = $request->phone;
         $suppliers['address'] = $request->address;
         $supplier->update($suppliers);
-        return redirect()->route('suppliers.index')->with('success','Unit delete successful!');
+        return redirect()->route('suppliers.index')->with('success','Supplier Update successful!');
     }
     public function destroy($id){
         $suppliers = supplier::find($id);
         $suppliers->delete();
-        return redirect()->route('suppliers.index')->with('success','Unit delete successful!');
+        return redirect()->route('suppliers.index')->with('success','Supplier delete successful!');
     }
 }
