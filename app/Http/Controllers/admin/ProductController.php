@@ -75,15 +75,24 @@ class ProductController extends Controller
        ->join('sub_categories','products.sub_category_id','sub_categories.id')
         ->join('brands','products.brand_id','brands.id')
         ->join('units','products.unit_id','units.id')
-       ->select('categories.name','units.name','products.*','units.name')
+        ->join('suppliers','products.supplier_id','suppliers.id')
+       ->select(
+        'categories.name as categoryName',
+        'sub_categories.name as subCategoryName',
+        'brands.name as brandName',
+        'units.name as unitName',
+        'suppliers.name as supplierName',
+        'products.*',
+
+       )
       
 
       -> where ('products.id',$id ) 
       ->first();
-      echo '<pre>';
-      print_r($products);
-      exit();
-    // return view('admin.product.view',compact('products'));
+    //   echo '<pre>';
+    //   print_r($products);
+    //   exit();
+     return view('admin.product.view',compact('products'));
     }
     public function edit(product $product){
 

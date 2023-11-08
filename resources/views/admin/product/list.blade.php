@@ -63,6 +63,7 @@
                            
                             <td>{{ $product ->description }}</td>
                             <td>{{ $product ->Product_code }}</td>
+                            
                             <td>
                                 @if ($product->status==1)
                                 <svg class="text-success-500 h-6 w-6 text-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -78,7 +79,7 @@
                             </td> 
                            
                             <td>
-                                <a href="{{ route('products.view',$product->id) }}"><i class="fa-regular fa-eye"></i></a>
+                                <a href="{{ route('products.view',$product->id) }}" class="pr-2 "><i class="fa-regular fa-eye"></i></a>
                                 <a href="{{ route('products.edit',$product->id) }}">
                                     <svg class="filament-link-icon w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>

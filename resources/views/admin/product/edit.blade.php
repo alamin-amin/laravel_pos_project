@@ -32,7 +32,7 @@
                             <div class="col-md-6">
                                 <div class="mb-2">
                                     <label for="name">Description</label>
-                                    <input type="text" name ="Description" value="{{$product ->description}}" id ="phone" class="form-control" placeholder="Enter your phone number">
+                                    <input type="text" name ="description" value="{{$product ->description}}" id ="phone" class="form-control" placeholder="Description">
                                     <p></p>	
                                 </div>
                             </div>
@@ -60,11 +60,11 @@
                                         <img src="/product_image/{{ $product ->product_image }}" alt="" style ="height: 60px; width:70px">
                                     </div>
                             </div>	
-                            <div class="col-md-6>
-                                <div class = " mb-2">
-                                    <label for="image">Update Images</label>
-                                    <input type="file" name ="product_image" class="form-control" placeholder="image"/>	
-                                </div>
+                            <div class="col-md-6">
+                                      <div class="mb-2">
+                                             <label for="image">Update Images</label>
+                                             <input type="file" name ="product_image" class="form-control" placeholder="image"/>	
+                                     </div>
                             </div>	
                         </div>				
                     </div>						
