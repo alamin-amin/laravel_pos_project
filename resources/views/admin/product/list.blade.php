@@ -45,6 +45,7 @@
                             <th width="60">ID</th>
                             <th>Product Name</th>
                             <th>Images</th>
+                            <th>QTY</th>
                             <th>Description</th>
                             <th>Product_code</th>
                             <th>Status</th>
@@ -61,6 +62,7 @@
                                 <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px; border-radius:50%"> 
                             </td>
                            
+                            <td>{{ $product ->qty }}</td>
                             <td>{{ $product ->description }}</td>
                             <td>{{ $product ->Product_code }}</td>
                             

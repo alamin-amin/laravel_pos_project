@@ -56,11 +56,11 @@ class ProductController extends Controller
                 
                 $products['Product_code'] = $request->Product_code;
                 $products['description'] = $request->description;
+                $products['qty'] = $request->qty;
                 $products['buying_price'] = $request->buying_price;
                 $products['selling_price'] = $request->selling_price;
                 $products['sku'] = $request->sku;
                 $products['product_image'] =$imageName;
-                $products['qty'] = $request->qty;
                 $products['status'] = $request->status;
                 $products->status=$request->status;
                 $products->save();
@@ -93,6 +93,7 @@ class ProductController extends Controller
     public function update(Request $request, product $product){
         $products['product_name'] = $request->product_name;
         $products['description'] = $request->description;
+        $products['qty'] = $request->qty;
         $products['Product_code'] = $request->Product_code;
        
         $image = $request->product_image;

@@ -89,8 +89,8 @@
                                 <div class="mb-2">
                                     <label for="name">Suppliers Nmae</label>
                                     @php
-                                    $suppliers = DB::table('suppliers')->get();
-                                @endphp
+                                        $suppliers = DB::table('suppliers')->get();
+                                    @endphp
                                 <select name="supplier_id" id="category_id" class="form-control">
                                     <option value=""> Select a Supplier</option>
                                     @foreach ($suppliers as $row)
@@ -104,6 +104,13 @@
                                 <div class="mb-2">
                                     <label for="name">Description</label>
                                     <input type="text" name ="description" id ="description" class="form-control" placeholder="Description">
+                                    <p></p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
+                                    <label for="name">QTY</label>
+                                    <input type="text" name ="qty" id ="QTY" class="form-control" placeholder="QTY">
                                     <p></p>	
                                 </div>
                             </div>

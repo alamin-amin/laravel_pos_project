@@ -8,7 +8,7 @@
                     <h1>Add Expenses</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{ route('customers.index') }}" class="btn btn-primary">Back</a>
+                    <a href="{{ route('expenses.index') }}" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>

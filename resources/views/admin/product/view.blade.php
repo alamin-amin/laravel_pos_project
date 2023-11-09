@@ -71,6 +71,12 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-2">
+                                    <h5 for="name">QTY :</h5>
+                                    <p>{{ $products->qty }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-2">
                                     <h5 for="name">Product Code :</h5>
                                     <p>{{ $products->Product_code }}</p>
                                 </div>

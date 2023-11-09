@@ -38,6 +38,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
+                                    <label for="name">QTY</label>
+                                    <input type="text" name ="qty" value="{{$product ->qty}}" id ="phone" class="form-control" placeholder="Description">
+                                    <p></p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
                                     <label for="name">Product Code</label>
                                     <input type="text" name ="Product_code" value="{{ $product ->Product_code  }}" id ="address" class="form-control" placeholder="Address">
                                     <p></p>	

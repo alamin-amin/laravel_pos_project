@@ -12,15 +12,15 @@
             </div>
             <div class="col-sm-4 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>
-                <a href="#" class="btn btn-success">Today</a>
+                <a href="{{ route('expenses.index') }}" class="btn btn-success">Today</a>
                 <a href="#" class="btn btn-info">Month</a>
             </div>
         </div>
     </div>
 </section>
 
-{{-- 
-            @php
+
+            {{-- @php
                 $date = date('d-m-y');
                 $expenses = DB::Table('expenses')->where('date',$date)->sum('amount')
             @endphp --}}
@@ -65,7 +65,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($expenses->isNotEmpty())
+                       
                         @foreach ($expenses as $expense )
                         <tr>
                             <td>{{ $expense ->id }}</td>
@@ -89,11 +89,6 @@
                             </td>
                         </tr>
                         @endforeach
-                        @else
-                            <tr>
-                                <td colspan="5"> Records Not Found</td>
-                            </tr>
-                        @endif
                     </tbody>
                 </table>										
             </div>
