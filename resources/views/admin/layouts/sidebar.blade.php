@@ -83,7 +83,7 @@
                 <li class="nav-item">
                     <a href="{{ route('expenses.index') }}" class="nav-link">
                         <i class="nav-icon  fa fa-percent" aria-hidden="true"></i>
-                        <p>Discount</p>
+                        <p>Expense</p>
                     </a>
                 </li>
                 <li class="nav-item">

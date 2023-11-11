@@ -113,6 +113,22 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/expenses/{expense}',[ExpenseController::class,'destroy'])->name('expenses.delete');
 
         Route::get('/today-expenses',[ExpenseController::class,'TodayExpense'])->name('expenses.TodayExpense');
+        Route::get('/monthly-expenses',[ExpenseController::class,'monthlyExpense'])->name('expenses.monthlyExpense');
+        Route::get('/yearly-expenses',[ExpenseController::class,'yearlyExpense'])->name('expenses.yearlyExpense');
+        //MONTH ROUTE
+        Route::get('/january-expenses',[ExpenseController::class,'january'])->name('expenses.january');     
+        Route::get('/february-expenses',[ExpenseController::class,'february'])->name('expenses.february');     
+        Route::get('/march-expenses',[ExpenseController::class,'march'])->name('expenses.march');     
+        Route::get('/april-expenses',[ExpenseController::class,'april'])->name('expenses.april');     
+        Route::get('/may-expenses',[ExpenseController::class,'may'])->name('expenses.may');     
+        Route::get('/june-expenses',[ExpenseController::class,'june'])->name('expenses.june');     
+        Route::get('/july-expenses',[ExpenseController::class,'july'])->name('expenses.july');     
+        Route::get('/august-expenses',[ExpenseController::class,'august'])->name('expenses.august');     
+        Route::get('/septenber-expenses',[ExpenseController::class,'septenber'])->name('expenses.septenber');     
+        Route::get('/october-expenses',[ExpenseController::class,'october'])->name('expenses.october');     
+        Route::get('/november-expenses',[ExpenseController::class,'november'])->name('expenses.november');     
+        Route::get('/december-expenses',[ExpenseController::class,'december'])->name('expenses.december');     
+
 
 
 

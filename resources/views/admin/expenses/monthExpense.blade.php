@@ -7,23 +7,34 @@
 
 
             @php
-                $date =  date('d-m-y');
-                $expen = DB::Table('expenses')->where('date',$date)->sum('amount');
+                $month =  date('F');
+                $monthTaka = DB::Table('expenses')->where('month',$month)->sum('amount');
             @endphp
-
-            <div class="col-sm-3">
-                <h1><i class="fa-solid fa-list"></i> All Expense</h1>
+            <div class="col-sm-4">
+                <h1><i class="fa-solid fa-list"></i>  {{ date('F') }}  Expense</h1>
             </div>
-            <div class="col-sm-3">
-                <h3> Today cost : {{$expen }}  ৳</h3>
+            <div class="col-sm-4">
+                <h3> Total :{{  $monthTaka }} ৳</h3>
             </div>
-            <div class="col-sm-6 text-right">
+            <div class="col-sm-4 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>
-                <a href="{{ route('expenses.index') }}" class="btn btn-success">Today</a>
-                <a href="{{ route('expenses.monthlyExpense') }}" class="btn btn-info">Month</a>
-                <a href="{{ route('expenses.yearlyExpense') }}" class="btn btn-info">Year</a>
+                <a href="{{ route('expenses.index') }}" class="btn btn-success">All Expense</a>
             </div>
+            <a href="{{ route('expenses.january') }}" class="btn btn-success mr-1">January</a>
+            <a href="{{ route('expenses.february') }}" class="btn btn-info mr-1">February</a>
+            <a href="{{ route('expenses.march') }}" class="btn btn-danger mr-1">March</a>
+            <a href="{{ route('expenses.april') }}" class="btn btn-primary mr-1">April</a>
+            <a href="{{ route('expenses.may') }}" class="btn btn-warning mr-1">May</a>
+            <a href="{{ route('expenses.june') }}" class="btn btn-info mr-1">June</a>
+            <a href="{{ route('expenses.july') }}" class="btn btn-success mr-1">July</a>
+            <a href="{{ route('expenses.august') }}" class="btn btn-danger mr-1">August</a>
+            <a href="{{ route('expenses.septenber') }}" class="btn btn-primary mr-1">September</a>
+            <a href="{{ route('expenses.october') }}" class="btn btn-warning mr-1">October</a>
+            <a href="{{ route('expenses.november') }}" class="btn btn-success mr-1">November</a>
+            <a href="{{ route('expenses.december') }}" class="btn btn-info mr-1">Desembet</a>
+           
         </div>
+
     </div>
 </section>
 
@@ -60,18 +71,18 @@
                         <tr>
                             <th width="200">ID</th>
                             <th>Details</th>
-                            <th>Date</th>
+                            <th>Month</th>
                             <th>Amount</th>
                             <th width="100">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                        
-                        @foreach ($expenses as $expense )
+                        @foreach ($exp as $expense )
                         <tr>
                             <td>{{ $expense ->id }}</td>
                             <td>{{ $expense ->expenses_details }}</td>
-                            <td>{{ $expense ->date }}</td>
+                            <td>{{ $expense ->month }}</td>     
                             <td>{{ $expense ->amount }}</td>
                             <td>
                                 <a href="{{ route('expenses.edit',$expense ->id) }}"> 
@@ -91,7 +102,7 @@
                 </table>										
             </div>
             <div class="card-footer clearfix">
-                {{ $expenses->links() }}
+                {{-- {{ $exp->links() }} --}}
             </div>
         </div>
     </div>

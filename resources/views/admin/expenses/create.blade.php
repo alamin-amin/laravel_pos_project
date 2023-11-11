@@ -62,7 +62,7 @@
                 </div>
                 <div class="pb-2 pt-1">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <a href="{{ route('customers.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
+                    <a href="{{ route('expenses.index') }}" class="btn btn-outline-dark ml-3">Cancel</a>
                 </div>
             </form>
         </div>
