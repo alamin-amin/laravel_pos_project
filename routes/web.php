@@ -93,7 +93,8 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/products/{product}/',[ProductController::class,'destroy'])->name('products.delete');
 
         // Order route..................
-        Route::get('/order',[OrderController::class,'index'])->name('order.index');
+        Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
+        Route::get('/orders/create',[OrderController::class,'create'])->name('orders.create');
 
 
 
