@@ -14,7 +14,7 @@
                 <h1><i class="fa-solid fa-list"></i>  {{ date('F') }}  Expense</h1>
             </div>
             <div class="col-sm-4">
-                <h3> Total :{{  $monthTaka }} ৳</h3>
+                <h3> Total = {{  $monthTaka }} ৳</h3>
             </div>
             <div class="col-sm-4 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>
@@ -28,7 +28,7 @@
             <a href="{{ route('expenses.june') }}" class="btn btn-info mr-1">June</a>
             <a href="{{ route('expenses.july') }}" class="btn btn-success mr-1">July</a>
             <a href="{{ route('expenses.august') }}" class="btn btn-danger mr-1">August</a>
-            <a href="{{ route('expenses.septenber') }}" class="btn btn-primary mr-1">September</a>
+            <a href="{{ route('expenses.september') }}" class="btn btn-primary mr-1">September</a>
             <a href="{{ route('expenses.october') }}" class="btn btn-warning mr-1">October</a>
             <a href="{{ route('expenses.november') }}" class="btn btn-success mr-1">November</a>
             <a href="{{ route('expenses.december') }}" class="btn btn-info mr-1">Desembet</a>

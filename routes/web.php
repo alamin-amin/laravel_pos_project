@@ -8,11 +8,11 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\UnitController;
-use App\Http\Controllers\ExpensesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminLoginController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\HomeController;
+use App\Http\Controllers\admin\PurchaseOrderController;
 use App\Http\Controllers\admin\SupplierController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -96,6 +96,11 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/order',[OrderController::class,'index'])->name('order.index');
 
 
+
+        //Purchase Order Route..........
+        Route::get('/purchase-order/create',[PurchaseOrderController::class,'create'])->name('purchase-order.create');
+
+
         //Employee Route..................
         Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
         Route::get('/employee/create',[EmployeeController::class,'create'])->name('employee.create');
@@ -104,7 +109,7 @@ Route::group(['prefix' => 'admin'],function(){
         Route::put('/employee/{data}',[EmployeeController::class,'update'])->name('employee.update');
         Route::get('/employee/{data}',[EmployeeController::class,'destroy'])->name('employee.delete');
         
-
+        //Expense Route...............
         Route::get('/expenses',[ExpenseController::class,'index'])->name('expenses.index');
         Route::get('/expenses/create',[ExpenseController::class,'create'])->name('expenses.create');
         Route::post('/expenses',[ExpenseController::class,'store'])->name('expenses.store');
@@ -115,7 +120,7 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/today-expenses',[ExpenseController::class,'TodayExpense'])->name('expenses.TodayExpense');
         Route::get('/monthly-expenses',[ExpenseController::class,'monthlyExpense'])->name('expenses.monthlyExpense');
         Route::get('/yearly-expenses',[ExpenseController::class,'yearlyExpense'])->name('expenses.yearlyExpense');
-        //MONTH ROUTE
+        //Expense MONTH ROUTE
         Route::get('/january-expenses',[ExpenseController::class,'january'])->name('expenses.january');     
         Route::get('/february-expenses',[ExpenseController::class,'february'])->name('expenses.february');     
         Route::get('/march-expenses',[ExpenseController::class,'march'])->name('expenses.march');     
@@ -124,7 +129,7 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/june-expenses',[ExpenseController::class,'june'])->name('expenses.june');     
         Route::get('/july-expenses',[ExpenseController::class,'july'])->name('expenses.july');     
         Route::get('/august-expenses',[ExpenseController::class,'august'])->name('expenses.august');     
-        Route::get('/septenber-expenses',[ExpenseController::class,'septenber'])->name('expenses.septenber');     
+        Route::get('/september-expenses',[ExpenseController::class,'september'])->name('expenses.september');     
         Route::get('/october-expenses',[ExpenseController::class,'october'])->name('expenses.october');     
         Route::get('/november-expenses',[ExpenseController::class,'november'])->name('expenses.november');     
         Route::get('/december-expenses',[ExpenseController::class,'december'])->name('expenses.december');     

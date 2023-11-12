@@ -15,7 +15,7 @@
                 <h1><i class="fa-solid fa-list"></i> All Expense</h1>
             </div>
             <div class="col-sm-3">
-                <h3> Today cost : {{$expen }}  ৳</h3>
+                <h3> Today cost = {{$expen }}  ৳</h3>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>

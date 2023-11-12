@@ -5,7 +5,7 @@
         <div class="container-fluid my-1">
             <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h1>Add Product</h1>
+                    <h1><i class="fa-solid fa-store"></i> Add Product</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('products.index') }}" class="btn btn-primary">Back</a>

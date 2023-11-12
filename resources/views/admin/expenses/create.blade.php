@@ -5,7 +5,7 @@
         <div class="container-fluid my-1">
             <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h1>Add Expenses</h1>
+                    <h1> <i class="fa-solid fa-file-signature"></i> Add Expenses</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('expenses.index') }}" class="btn btn-primary">Back</a>

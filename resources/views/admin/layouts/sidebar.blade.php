@@ -53,12 +53,7 @@
                         <p>Units</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('suppliers.index') }}" class="nav-link">
-                        <i class="fa-solid fa-people-arrows"></i>
-                        <p class="pl-2">Suppliers</p>
-                    </a>
-                </li>
+               
                 <li class="nav-item">
                     <a href="{{ route('customers.index') }}" class="nav-link text-dark">
                         <i class="fa-solid fa-people-carry-box"></i>
@@ -67,13 +62,7 @@
                     </a>
                 </li>
                 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <!-- <i class="nav-icon fas fa-tag"></i> -->
-                        <i class="fas fa-truck nav-icon"></i>
-                        <p>Shipping</p>
-                    </a>
-                </li>							
+                						
                 <li class="nav-item">
                     <a href="{{ route('order.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-shopping-bag"></i>
@@ -86,6 +75,19 @@
                         <p>Expense</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('suppliers.index') }}" class="nav-link">
+                        <i class="fa-solid fa-people-arrows"></i>
+                        <p class="pl-2">Suppliers</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('purchase-order.create') }}" class="nav-link">
+                        <i class="fas fa-truck nav-icon"></i>
+                        <p>Purchase Order</p>
+                    </a>
+                </li>	
                 <li class="nav-item">
                     <a href="users.html" class="nav-link">
                         <i class="nav-icon  fas fa-users"></i>

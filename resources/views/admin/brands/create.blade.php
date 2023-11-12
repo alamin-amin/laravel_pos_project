@@ -5,7 +5,7 @@
     <div class="container-fluid my-1">
         <div class="row mb-1">
             <div class="col-sm-6">
-                <h1>Create Brand</h1>
+                <h1><i class="fa-solid fa-code-branch"></i> Create Brand</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('brands.index') }}" class="btn btn-primary">Back</a>

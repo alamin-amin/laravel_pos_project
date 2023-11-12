@@ -15,7 +15,7 @@
                 <h1><i class="fa-solid fa-list"></i> {{ date('Y') }}  Expense</h1>
             </div>
             <div class="col-sm-4">
-                <h3> Yearly Cost : {{ $yearlyTaka }} ৳</h3>
+                <h3> Yearly Cost = {{ $yearlyTaka }} ৳</h3>
             </div>
             <div class="col-sm-4 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>

@@ -15,7 +15,7 @@
             <div class="row mb-1">
                 
                 <div class="col-sm-6">
-                    <h1>Add units</h1>
+                    <h1><i class="fa-solid fa-weight-scale"></i> Add units</h1>
                 </div>
                 <div class="col-sm-6 text-right">
                     <a href="{{ route('categories.index') }}" class="btn btn-primary">Back</a>

@@ -117,7 +117,7 @@ class ExpenseController extends Controller
         $exp= DB::table('expenses')->where('month', $month)->get();
        return view('admin.expenses.monthExpense',compact('exp'));
     }
-    public function septenber(){
+    public function september(){
         $month = ('September');
         $exp= DB::table('expenses')->where('month', $month)->get();
        return view('admin.expenses.monthExpense',compact('exp'));
