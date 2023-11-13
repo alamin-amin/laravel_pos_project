@@ -15,13 +15,13 @@
                 <h1><i class="fa-solid fa-list"></i> All Expense</h1>
             </div>
             <div class="col-sm-3">
-                <h3> Today cost = {{$expen }}  ৳</h3>
+                <h3> Today Cost = {{$expen }}  ৳</h3>
             </div>
             <div class="col-sm-6 text-right">
                 <a href="{{ route('expenses.create') }}" class="btn btn-primary">Add New Expense</a>
                 <a href="{{ route('expenses.index') }}" class="btn btn-success">Today</a>
                 <a href="{{ route('expenses.monthlyExpense') }}" class="btn btn-info">Month</a>
-                <a href="{{ route('expenses.yearlyExpense') }}" class="btn btn-info">Year</a>
+                <a href="{{ route('expenses.yearlyExpense') }}" class="btn btn-warning">Year</a>
             </div>
         </div>
     </div>

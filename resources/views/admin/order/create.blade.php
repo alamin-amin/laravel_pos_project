@@ -3,15 +3,14 @@
 
 <section class="">					
     <div class="container-fluid">
-        <div class="row mb-2">
+      <div class="row mb-2">
             <div class="col-sm-6">
-                <h1><i class="fa-solid fa-baby-carriage"></i>  Create Orders</h1>
+                <h1><i class="fa-solid fa-scale-balanced"></i>  Create Orders</h1>
             </div>
             <div class="col-sm-6 text-right">
                 <h3 class="pt-3"> {{ date('d-m-y') }}</h3>
-               
             </div>
-        </div>
+      </div>
     </div>
     <!-- /.container-fluid -->
 </section>
@@ -35,11 +34,10 @@
             </div>
             <div class="card-body table-responsive p-0">
                 <div class="row">
-
-                    <div class="col-5">
+                    <div class="col-6">
                         <div class="mb-3 row">
                            <div class="col-7">
-                            <label style="font-size: 30px; padding-left:6px; for="name">Customers</label>
+                            <label style="font-size: 30px; padding-left:6px; for="name"> <i class="fa-solid fa-layer-group"></i> Customers</label>
                             <select name="customer" id="customer" class="form-control">
                                 <option value=""> Select a Customer</option>
                                 @foreach ( $customers as  $customer)
@@ -52,25 +50,47 @@
                                 <a href="#" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Cuestomer</a>
                             </div>
                         </div>
-
-                        <div>
+                          {{-- //add tocart list.... --}}
+                        <div style="border :1px solid grey">
                            <div>
-                                <h5 class="text-center bg-success">Product not Added</h5>
-                           </div>
-                           <div class="pl-4">
-                            <p style="font-size:20px">Quantity : 00.00</p>
-                            <p style="font-size:20px">Product : 00.00</p>
-                            <p style="font-size:20px">Vat : 00.00</p>
-                            <hr>
-                            <p>Total : 0000</p>
-                           </div>
-                           <button class="btn btn-success">Submit Order</button>
+                               <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th>Nmae</th>
+                                      <th>Image</th>
+                                      <th>Qty</th>
+                                      <th>price</th>
+                                      <th>Total</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>macbook</td>
+                                      <td>Igages</td>
+                                      <td><input type="number" value="1" style="width:40px"></td>
+                                      <td>500</td>
+                                      <td>5000</td>
+                                      <td><i class="fa-solid fa-trash-can"></i></td>
+
+                                    </tr>
+                                  </tbody>
+                               </table>
+                              </div>
+                              <hr>
+                              <div class="pl-4  bg-light">
+                                <p style="font-size:20px">Product : 00.00</p>
+                                <p style="font-size:20px">Vat : 00.00</p>
+                                <hr>
+                                <h4>Total : 0000</h4>
+                              </div>
+                              <div class="mb-2 pr-3 text-right">
+                                <button class="btn btn-success">Submit Order</button>
+                              </div>
+                             
                         </div>
-
-                        
-
                     </div>  
-                    <div class="col-7">
+                    <div class="col-6">
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
