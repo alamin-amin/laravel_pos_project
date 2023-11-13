@@ -23,7 +23,7 @@ class CustomerController extends Controller
     public function store(Request $request){
         $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|unique:customers',
+            'email' => 'required',
             'phone' => 'required',
             'address' => 'required',
             'status' => 'required',
@@ -34,9 +34,8 @@ class CustomerController extends Controller
         $customers['phone'] = $request->phone;
         $customers['address'] = $request->address;
         $customers['status'] = $request->status;
-       
         Customer::create($customers);
-        return redirect()->route('customers.index')->with('success','Customer Added successful!');
+        return back()->with('success','Customer Added successful!');
 
     }
     public function edit(Customer $Customer){
@@ -51,12 +50,12 @@ class CustomerController extends Controller
         $customers['address'] = $request->address;
         $customers['status'] = $request->status;
         $customer->update($customers);
-        return redirect()->route('customers.index')->with('success','Unit delete successful!');
+        return redirect()->route('customers.index')->with('success','Customer Update successful!');
     }
     public function destroy($id){
         $customers = Customer::find($id);
         $customers->delete();
-        return redirect()->route('customers.index')->with('success','Unit delete successful!');
+        return redirect()->route('customers.index')->with('success','Customer delete successful!');
 
     
     }

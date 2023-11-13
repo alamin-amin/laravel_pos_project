@@ -123,35 +123,36 @@
       </div>
       <div class="modal-body">
         <form method="post" action="{{ route('customers.store') }}">
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Name : </label>
-            <input type="text" name="name" placeholder="Customer Name" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Email : </label>
-            <input type="text" name="email" placeholder="Email" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Phone Number : </label>
-            <input type="text" name="phone" placeholder=" Phone Number" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Address : </label>
-            <input type="text" name="address" placeholder="Address" class="form-control" id="recipient-name">
-          </div>
-          <div class="col-md-6">
-            <div class="mb-2">
-                <label for="status" class="col-form-label">Status</label>
-                <select name="status" id="recipient-name" class="form-control">
-                    <option value="1">Active</option>
-                    <option value="0">Block</option>
-                </select>
-            </div>
-        </div>	
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+          @csrf
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name : </label>
+                <input type="text" name="name" placeholder="Customer Name" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email : </label>
+                <input type="text" name="email" placeholder="Email" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Phone Number : </label>
+                <input type="text" name="phone" placeholder=" Phone Number" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Address : </label>
+                <input type="text" name="address" placeholder="Address" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <div class="mb-2">
+                    <label for="status" class="col-form-label">Status</label>
+                    <select name="status" id="recipient-name" class="form-control">
+                        <option value="1">Active</option>
+                        <option value="0">Block</option>
+                    </select>
+                  </div>
+              </div>	
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
         </form>
       </div>
      
