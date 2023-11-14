@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\BrandController;
+use App\Http\Controllers\admin\CartController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\OrderController;
@@ -95,6 +96,22 @@ Route::group(['prefix' => 'admin'],function(){
         // Order route..................
         Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
         Route::get('/orders/create',[OrderController::class,'create'])->name('orders.create');
+
+
+        Route::post('/carts/{cart}/id',[CartController::class,'addToCart'])->name('carts.addToCart');
+
+
+
+
+
+        
+
+
+
+
+
+
+
 
 
 

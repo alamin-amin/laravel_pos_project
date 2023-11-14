@@ -34,7 +34,7 @@
             </div>
             <div class="card-body table-responsive p-0">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-5">
                         <div class="mb-3 row">
                            <div class="col-7">
                             <label style="font-size: 30px; padding-left:6px; for="name"> <i class="fa-solid fa-layer-group"></i> Customers</label>
@@ -56,8 +56,7 @@
                                <table class="table">
                                   <thead>
                                     <tr>
-                                      <th>Nmae</th>
-                                      <th>Image</th>
+                                      <th>Products</th>
                                       <th>Qty</th>
                                       <th>price</th>
                                       <th>Total</th>
@@ -65,15 +64,21 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+                                    @foreach ( $cartData as $data )
+                                      
+                                   
                                     <tr>
-                                      <td>macbook</td>
-                                      <td>Igages</td>
-                                      <td><input type="number" value="1" style="width:40px"></td>
-                                      <td>500</td>
-                                      <td>5000</td>
+                                      <td>{{ $data->product_name }}</td>
+                                      <td> 
+                                        <input type="number" value="{{ $data->qty }}" style="width:40px">
+                                      </td>
+    
+                                      <td>{{  $data->Price  }}</td>
+                                      <td>{{  $data->selling_price  }}</td>
                                       <td><i class="fa-solid fa-trash-can"></i></td>
 
                                     </tr>
+                                    @endforeach
                                   </tbody>
                                </table>
                               </div>
@@ -90,11 +95,11 @@
                              
                         </div>
                     </div>  
-                    <div class="col-6">
+                    <div class="col-7">
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                   										
+                                   	<th>Cart</th>			
                                     <th>Product Name</th>
                                     <th>Images</th>
                                     <th>Category</th>
@@ -107,18 +112,24 @@
                             <tbody>
                                 @foreach ($products as $product )
                                 <tr>
-                                    
-                                    <td>
-                                        <a href="#" style="font-size: 20px; padding-right:11px"><i class="fa-solid fa-square-plus"></i></a>
+                                  <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
+                                     @csrf
+
+                                      <td>
+                                      <input type="number" name="qty" style="width: 40px">
+                                       <button type="submit"><a href="#" style="font-size: 20px; padding-right:11px"><i class="fa-solid fa-square-plus"></i></a></button> 
+                                      </td>
+                                      <td>
                                         {{$product->product_name  }}
-                                    </td>
+                                      </td>
                                     <td>
                                         <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"> 
                                     </td>
                                     <td>{{$product->categoryName}}</td>
                                     <td>{{$product->brandName}}</td>
                                     <td>{{$product->selling_price}}</td>
-                                    <td>{{$product->Product_code}}</td>																		
+                                    <td>{{$product->Product_code}}</td>		
+                                  </form>																
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -21,9 +21,12 @@ class OrderController extends Controller
                 'products.*',
                )
             ->get();
-
+                $cartData= DB::table('carts')
+                ->join('products','carts.products_id','products.id')
+                ->get();
             $customers = DB::table('customers')->get();
-            $categories = DB::table('categories')->get();
-            return view ('admin.order.create',compact('products','customers','categories'));
+            // $categories = DB::table('categories')->get();
+            return view ('admin.order.create',compact('products','customers','cartData'));
        }
+
 }
