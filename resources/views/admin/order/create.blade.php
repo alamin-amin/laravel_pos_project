@@ -70,7 +70,8 @@
                                     <tr>
                                       <td>{{ $data->product_name }}</td>
                                       <td> 
-                                        <input type="number" value="{{ $data->qty }}" style="width:40px">
+                                        {{ $data->qty }}
+                                        {{-- <input type="number" value="{{ $data->qty }}" style="width:40px"> --}}
                                       </td>
     
                                       <td>{{  $data->Price  }}</td>
@@ -114,10 +115,9 @@
                                 <tr>
                                   <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
                                      @csrf
-
                                       <td>
-                                      <input type="number" name="qty" style="width: 40px">
-                                       <button type="submit"><a href="#" style="font-size: 20px; padding-right:11px"><i class="fa-solid fa-square-plus"></i></a></button> 
+                                       <button type="submit"><i class="fa-solid fa-cart-shopping"></i></button> 
+                                       <input type="number" name="qty" style="width: 40px">
                                       </td>
                                       <td>
                                         {{$product->product_name  }}
@@ -128,12 +128,44 @@
                                     <td>{{$product->categoryName}}</td>
                                     <td>{{$product->brandName}}</td>
                                     <td>{{$product->selling_price}}</td>
-                                    <td>{{$product->Product_code}}</td>		
-                                  </form>																
+                                    <td>{{$product->Product_code}}</td>	
+                                    
+                                  </form>	
+
+                                  
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="row">
+                        <div class="col-6 cart">
+                          <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
+                            @csrf
+                            <p> <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"></p>
+                            <p>  {{$product->product_name  }}</p>
+                            <p>{{$product->categoryName}}</p>
+                            <p>{{$product->brandName}}</p>
+                            <p>{{$product->selling_price}}</p>
+                            <p>{{$product->Product_code}}</p>
+                            <button type="submit"><i class="fa-solid fa-cart-shopping"></i></button>	
+                          </form>
+
+                        </div>
+                            <div class="card col-6 bg-warning" style="width: 18rem;">
+                              <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
+                                @csrf
+                                <p> <img src="/product_image/{{$product ->product_image}}" style="height: 150px;width:100%;"></p>
+                                  <div class="card-body ">
+                                    <h5>Product : {{$product->product_name  }}</h5>
+                                    <p> Brand : {{$product->brandName}}</p>
+                                    <p class=""> Price : {{$product->selling_price}}</p>
+                                  </div>
+                                    <div class="pb-3">
+                                      <button type="submit" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i></button>
+                                    </div>      
+                               </form>
+                            </div>
+                      </div>
                     </div>							
                
                 </div>											
