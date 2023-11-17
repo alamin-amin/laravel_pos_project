@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use App\Models\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -23,10 +23,21 @@ class OrderController extends Controller
             ->get();
                 $cartData= DB::table('carts')
                 ->join('products','carts.products_id','products.id')
+                ->select('products.*', 'carts.*')
                 ->get();
-            $customers = DB::table('customers')->get();
-            // $categories = DB::table('categories')->get();
-            return view ('admin.order.create',compact('products','customers','cartData'));
+                $subTotal = Cart::all()->where("products_id")->sum("total");
+
+           $customers = DB::table('customers')->get();
+            return view ('admin.order.create',compact('products','customers','cartData','subTotal'));
+       }
+       public function destroy($cart_id){
+         Cart::where('id',$cart_id)->delete();
+        return redirect()->back();
        }
 
+       public function update(Request $request, $cart_id){
+        $cart = Cart::find($cart_id);
+        $cart->update(['qty'=>$request->qty]);
+        return redirect()->back();
+       }
 }

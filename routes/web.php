@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CartController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\admin\placeOrderController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\SubCategoryController;
@@ -96,15 +97,40 @@ Route::group(['prefix' => 'admin'],function(){
         // Order route..................
         Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
         Route::get('/orders/create',[OrderController::class,'create'])->name('orders.create');
-
+        
 
         Route::post('/carts/{cart}/id',[CartController::class,'addToCart'])->name('carts.addToCart');
+        Route::get('/carts/{cart}/id',[OrderController::class,'destroy'])->name('carts.delete');
+        Route::post('/carts/{cart}/',[OrderController::class,'update'])->name('carts.update');
 
 
-
+        Route::post('/place-orders',[placeOrderController::class,'store'])->name('place-orders.store');
 
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

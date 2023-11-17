@@ -35,13 +35,15 @@
             <div class="card-body table-responsive p-0">
                 <div class="row">
                     <div class="col-5">
+                      <form action="{{ route('place-orders.store') }}" method="post">
+                        @csrf
                         <div class="mb-3 row">
                            <div class="col-7">
                             <label style="font-size: 30px; padding-left:6px; for="name"> <i class="fa-solid fa-layer-group"></i> Customers</label>
                             <select name="customer" id="customer" class="form-control">
                                 <option value=""> Select a Customer</option>
                                 @foreach ( $customers as  $customer)
-                                    <option>{{ $customer->name }}</option>
+                                    <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                 @endforeach 
                             </select>
                            </div>
@@ -60,42 +62,66 @@
                                       <th>Qty</th>
                                       <th>price</th>
                                       <th>Total</th>
-                                      <th>Action</th>
+                                      <th width="10">Action</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     @foreach ( $cartData as $data )
-                                      
-                                   
                                     <tr>
-                                      <td>{{ $data->product_name }}</td>
+                                     
+                                      <td> <input type="text" name="product_name" value="{{  $data->product_name }}" style="width:100px; border: none;"></td>
                                       <td> 
-                                        {{ $data->qty }}
-                                        {{-- <input type="number" value="{{ $data->qty }}" style="width:40px"> --}}
+                                        
+                                          {{-- <form action="" method="post"> --}}
+                                           
+                                           <input type="number" name="qty" value="{{ $data->qty }}" style="width:40px;border: none;">
+                                             {{-- <button type="text" class="btn btn-sm btn-info"><i class="fa-solid fa-square-check"></i></button> --}}
+                                          {{-- </form> --}}
+                                   
                                       </td>
-    
                                       <td>{{  $data->Price  }}</td>
-                                      <td>{{  $data->selling_price  }}</td>
-                                      <td><i class="fa-solid fa-trash-can"></i></td>
-
+                                      <td> <input type="text" name="total" value="{{  $data->total }}" style="width:50px; border: none;"></td>
+                                      <td class="pl-3"><a href="{{ route('carts.delete',$data->id) }}" class="text-danger "><i class="fa-solid fa-xmark"></i></a></td>
                                     </tr>
                                     @endforeach
                                   </tbody>
                                </table>
                               </div>
+                             
                               <hr>
                               <div class="pl-4  bg-light">
-                                <p style="font-size:20px">Product : 00.00</p>
+                               
+                                <td> <sp style="font-size:20px">Sub Total :</sp> <input type="text" name="sub_total" value="{{ $subTotal }}" style="width:350px; border: none;"></td>
                                 <p style="font-size:20px">Vat : 00.00</p>
-                                <hr>
-                                <h4>Total : 0000</h4>
                               </div>
-                              <div class="mb-2 pr-3 text-right">
+                                <hr>
+                                
+                             
+                              <div class="row">
+                                <div class="col-6">
+                                  <h4> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }}" style="width:100%; border: none;"></h4>
+                                </div>
+                                <div class="col-6">
+                                  <h4>Payment Method</h4>
+                                  <label for="payment"><i class="fa-solid fa-sack-dollar"></i> Hand Cash
+                                    <input type="checkbox" value="handcash" name="payment_type" class="ml-3 selected>
+                                    <span class="checkmark"></span>
+                                  </label><br>
+                                  <label for="payment"><i class="fa-solid fa-money-check"></i>  Digital pay
+                                    <input type="checkbox" value="digitalpay"  name="payment_type" class="ml-3">
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="mb-2 pl-3 ">
                                 <button class="btn btn-success">Submit Order</button>
                               </div>
-                             
+                            </form>
                         </div>
-                    </div>  
+                    </div> 
+                    
+                    {{-- Right side start here --}}
+
                     <div class="col-7">
                         <table class="table table-hover text-nowrap">
                             <thead>
@@ -223,7 +249,52 @@
   </div>
 </div>
 
+ {{-- Orders invoice  --}}
 
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="">
+        <h4 class="modal-title bg-info text-center " id="exampleModalLabel"> Customers Invoice</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ route('customers.store') }}">
+          @csrf
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name : </label>
+                <input type="text" name="name" placeholder="Customer Name" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email : </label>
+                <input type="text" name="email" placeholder="Email" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Phone Number : </label>
+                <input type="text" name="phone" placeholder=" Phone Number" class="form-control" id="recipient-name">
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Address : </label>
+                <input type="text" name="address" placeholder="Address" class="form-control" id="recipient-name">
+              </div>
+              <div class="col-md-6">
+                <div class="mb-2">
+                    <label for="status" class="col-form-label">Status</label>
+                    <select name="status" id="recipient-name" class="form-control">
+                        <option value="1">Active</option>
+                        <option value="0">Block</option>
+                    </select>
+                  </div>
+              </div>	
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
 </section>
 @endsection
