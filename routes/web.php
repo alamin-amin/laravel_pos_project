@@ -97,6 +97,7 @@ Route::group(['prefix' => 'admin'],function(){
         // Order route..................
         Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
         Route::get('/orders/create',[OrderController::class,'create'])->name('orders.create');
+        Route::get('/orders-invoice',[OrderController::class,'orderInvoice'])->name('orders.orderInvoice');
         
 
         Route::post('/carts/{cart}/id',[CartController::class,'addToCart'])->name('carts.addToCart');
@@ -105,6 +106,7 @@ Route::group(['prefix' => 'admin'],function(){
 
 
         Route::post('/place-orders',[placeOrderController::class,'store'])->name('place-orders.store');
+        
 
 
         

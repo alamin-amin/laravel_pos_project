@@ -21,41 +21,47 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-6">							
-                <div class="small-box card bg-info">
-                    <div class="inner">
-                        <h3>150</h3>
-                        <p>Total Orders</p>
+                <div class="small-box card d-flex" style="background-color: #caf47b">
+                    <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                        <i class="fa-solid fa-cart-shopping"></i> <span style="font-size: 24px; padding-left:23px">{{$categoryCount}}</span></i>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-6">							
-                <div class="small-box card bg-success">
-                    <div class="inner">
-                        <h3>50</h3>
-                        <p>Total Customers</p>
+                    <div class=" d-flex inner">
+                        <h4 class="pl-3">Total Category</h4>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('categories.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             
             <div class="col-lg-4 col-6">							
-                <div class="small-box card" style="background-color: rgb(225, 118, 106)">
-                    <div class="inner">
-                        <h3>1000 TK</h3>
-                        <p>Total Sale</p>
+                <div class="small-box card d-flex" style="background-color: rgb(123, 244, 189)">
+                    <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                        <i class="fa-solid fa-user-plus"></i> <span style="font-size: 24px; padding-left:23px">{{$customerCount }}</span></i>
+                    </div>
+                    <div class=" d-flex inner">
+                        <h4 class="pl-3">Total Customers</h4>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-person-add"></i>
+                        <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="javascript:void(0);" class="small-box-footer">&nbsp;</a>
+                    <a href="{{ route('customers.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-6">							
+                <div class="small-box card d-flex" style="background-color: #c78108">
+                    <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                        <i class="fa-solid fa-store"></i> <span style="font-size: 24px; padding-left:23px">{{$productCount}}</span></i>
+                    </div>
+                    <div class=" d-flex inner">
+                        <h4 class="pl-3">Total Products</h4>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{{ route('products.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
                 @php
@@ -81,18 +87,34 @@
                 </div>
 
 
-            <div class="col-lg-4 col-6">							
-                <div class="small-box card">
-                    <div class="inner">
-                        <h3>1000 TK</h3>
-                        <p>Total Sale</p>
+                <div class="col-lg-4 col-6">							
+                    <div class="small-box card d-flex" style="background-color: #75a57b">
+                        <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                            <i class="fa-solid fa-store"></i> <span style="font-size: 24px; padding-left:23px">435646</span></i>
+                        </div>
+                        <div class=" d-flex inner">
+                            <h4 class="pl-3">Tota</h4>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="{{ route('products.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="javascript:void(0);" class="small-box-footer">&nbsp;</a>
                 </div>
-            </div>
+                <div class="col-lg-4 col-6">							
+                    <div class="small-box card d-flex" style="background-color: #c3d8c4">
+                        <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                            <i class="fa-solid fa-store"></i> <span style="font-size: 24px; padding-left:23px">565656</span></i>
+                        </div>
+                        <div class=" d-flex inner">
+                            <h4 class="pl-3">Total </h4>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="{{ route('products.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
         </div>
     </div>					
     <!-- /.card -->

@@ -5,7 +5,7 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Orders</h1>
+                <h1>Orders List</h1>
             </div>
             <div class="col-sm-6 text-right">
             </div>
@@ -37,80 +37,26 @@
                         <tr>
                             <th>Orders #</th>											
                             <th>Customer</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Status</th>
+                            <th>QTY</th>
+                            <th>Payment</th>
                             <th>Total</th>
-                            <th>Date Purchased</th>
+                            <th>Order Date</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($orderList as $list )
+
                         <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
+                            <td>{{ $list->invoice_no }}</a></td>
+                            <td>{{  $list->order_customer_id }}</td>
+                            <td>{{ $list->qty }}</td>
                             <td>
-                                <span class="badge bg-success">Delivered</span>
+                                <span class="badge bg-success">{{$list->payment_type }}</span>
                             </td>
-                            <td>$450</td>
-                            <td>Nov 20, 2022</td>																				
+                            <td>{{ $list->total }}</td>
+                            <td>{{ $list->created_at }}</td>																				
                         </tr>
-                        <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
-                            <td>
-                                <span class="badge bg-success">Delivered</span>
-                            </td>
-                            <td>$20000</td>
-                            <td>Nov 20, 2022</td>																				
-                        </tr>
-                        <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
-                            <td>
-                                <span class="badge bg-success">Delivered</span>
-                            </td>
-                            <td>$400</td>
-                            <td>Nov 20, 2022</td>																				
-                        </tr>
-                        <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
-                            <td>
-                                <span class="badge bg-success">Delivered</span>
-                            </td>
-                            <td>$540</td>
-                            <td>Nov 20, 2022</td>																				
-                        </tr>
-                        <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
-                            <td>
-                                <span class="badge bg-success">Delivered</span>
-                            </td>
-                            <td>$400</td>
-                            <td>Nov 20, 2022</td>																				
-                        </tr>
-                        <tr>
-                            <td><a href="order-detail.html">OR756374</a></td>
-                            <td>Mohit Singh</td>
-                            <td>example@example.com</td>
-                            <td>12345678</td>
-                            <td>
-                                <span class="badge bg-success">Delivered</span>
-                            </td>
-                            <td>$1110</td>
-                            <td>Nov 20, 2022</td>																				
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>										
             </div>

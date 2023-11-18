@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('palce_orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('customers_id');
+            // $table->integer('customers_id');
             $table->integer('product_id');
             $table->integer('order_customer_id');
             $table->string('invoice_no');

@@ -45,7 +45,7 @@ class placeOrderController extends Controller
           $Carts= Cart::all();
           $orderId = Str::uuid();
           foreach($Carts as $cart){
-            $placeOrder =new palceOrder;
+            $placeOrder = new palceOrder;
                 $placeOrder->product_id = $cart->products_id;
                 $placeOrder->order_customer_id = $customer_id;
                 $placeOrder->invoice_no =$orderId;

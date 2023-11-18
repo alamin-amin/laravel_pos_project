@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class palceOrder extends Model
 {
     use HasFactory;
-    // protected $fillable = ['customers_id','invoice_no','payment_type','total','sub_total'] ;
-    protected $guarded = [];
+   protected $fillable = ['product_id','order_customer_id','invoice_no','payment_type','total','sub_total','qty'] ;
+    // protected $guarded = [];
 }

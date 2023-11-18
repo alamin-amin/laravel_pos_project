@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\Cart;
+use App\Models\palceOrder;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -9,7 +10,27 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index(){
-        return view ('admin.order.list');
+        //  $orderList = DB::table('palce_orders')
+        //  ->join('order_customers','palce_orders.order_customer_id','order_customers.id')
+        //  ->join('products','palce_orders.product_id','products.id')
+        //  ->select('palce_orders.*','order_customers.*','products.*')
+        //  ->get();
+
+         $orderList= palceOrder::latest()->get();
+
+        // $orderList = DB::table('palce_orders')
+        //  ->join('order_customers','palce_orders.order_customer_id',' = ','order_customers.id')
+        //  ->join('products','palce_orders.product_id', '=','products.id')
+
+        //  ->select('palce_orders.*','order_customers.*')
+        //  ->get()->toArray;
+        
+        
+        //  echo '<pre>';
+        //  print_r($orderList);
+
+  
+        return view ('admin.order.list',compact('orderList'));
     }
     public function create(){
             $products = DB::table('products')
@@ -40,4 +61,16 @@ class OrderController extends Controller
         $cart->update(['qty'=>$request->qty]);
         return redirect()->back();
        }
+
+
+        // Order Invoice....
+
+    public function orderInvoice(){
+        $invoiceLists = DB::table('palce_orders')
+        ->join('order_customers','palce_orders.order_customer_id','customer_id')
+        ->select('palce_orders.*','order_customers.*')
+        ->get();
+
+        return view ('admin.order.invoice',compact('invoiceLists'));
+    }
 }

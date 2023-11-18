@@ -11,10 +11,10 @@
             <a href="{{ route('categories.create') }}" class="nav-link">Add Category</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="{{ route('orders.index') }}" class="nav-link">Orders</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">About</a>
+            <a href="{{route('orders.orderInvoice') }}" class="nav-link">About</a>
           </li>					
     </ul>
     <div class="navbar-nav pl-2">
