@@ -49,7 +49,7 @@
                            </div>
                            
                             <div class="col-5">
-                                <a href="#" class="btn btn-primary text-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Cuestomer</a>
+                                <a href="#" class="btn btn-primary text-right mt-2" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">New Cuestomer</a>
                             </div>
                         </div>
                           {{-- //add tocart list.... --}}
@@ -66,22 +66,20 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    @foreach ( $cartData as $data )
-                                    <tr>
-                                     
-                                      <td> <input type="text" name="product_name" value="{{  $data->product_name }}" style="width:100px; border: none;"></td>
-                                      <td> 
-                                        
-                                          {{-- <form action="" method="post"> --}}
-                                           
-                                           <input type="number" name="qty" value="{{ $data->qty }}" style="width:40px;border: none;">
-                                             {{-- <button type="text" class="btn btn-sm btn-info"><i class="fa-solid fa-square-check"></i></button> --}}
-                                          {{-- </form> --}}
-                                   
-                                      </td>
-                                      <td>{{  $data->Price  }}</td>
-                                      <td> <input type="text" name="total" value="{{  $data->total }}" style="width:50px; border: none;"></td>
-                                      <td class="pl-3"><a href="{{ route('carts.delete',$data->id) }}" class="text-danger "><i class="fa-solid fa-xmark"></i></a></td>
+                                     @foreach ( $cartData as $data )
+                                      <tr>
+                                          <td> <input type="text" name="product_name" value="{{  $data->product_name }}" style="width:100px; border: none;"></td>
+                                          <td> 
+                                              {{-- <form action="" method="post"> --}}
+                                              
+                                              <input type="number" name="qty" value="{{ $data->qty }}" style="width:40px;border: none;">
+                                                {{-- <button type="text" class="btn btn-sm btn-info"><i class="fa-solid fa-square-check"></i></button> --}}
+                                              {{-- </form> --}}
+                                      
+                                          </td>
+                                          <td>{{  $data->Price  }}</td>
+                                          <td> <input type="text" name="total" value="{{  $data->total }}" style="width:50px; border: none;"></td>
+                                          <td class="pl-3"><a href="{{ route('carts.delete',$data->id) }}" class="text-danger "><i class="fa-solid fa-xmark"></i></a></td>
                                     </tr>
                                     @endforeach
                                   </tbody>
@@ -90,16 +88,15 @@
                              
                               <hr>
                               <div class="pl-4  bg-light">
-                               
-                                <td> <sp style="font-size:20px">Sub Total :</sp> <input type="text" name="sub_total" value="{{ $subTotal }}" style="width:350px; border: none;"></td>
-                                <p style="font-size:20px">Vat : 00.00</p>
+                                  <td> <span style="font-size:20px">Sub Total :</span> <input type="text" name="sub_total" value="{{ $subTotal }}" style="width:350px; border: none;"></td>
+                                 <p style="font-size:20px">Vat : 00.00</p>
                               </div>
                                 <hr>
                                 
                              
                               <div class="row">
                                 <div class="col-6">
-                                  <h4> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }}" style="width:100%; border: none;"></h4>
+                                   <h4> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }}" style="width:100%; border: none;"></h4>
                                 </div>
                                 <div class="col-6">
                                   <h4>Payment Method</h4>
@@ -133,7 +130,6 @@
                                     <th>Brand</th>
                                     <th>Price</th>
                                     <th>Code</th>
-                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -155,28 +151,24 @@
                                     <td>{{$product->brandName}}</td>
                                     <td>{{$product->selling_price}}</td>
                                     <td>{{$product->Product_code}}</td>	
-                                    
                                   </form>	
-
-                                  
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="row">
-                        <div class="col-6 cart">
-                          <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
-                            @csrf
-                            <p> <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"></p>
-                            <p>  {{$product->product_name  }}</p>
-                            <p>{{$product->categoryName}}</p>
-                            <p>{{$product->brandName}}</p>
-                            <p>{{$product->selling_price}}</p>
-                            <p>{{$product->Product_code}}</p>
-                            <button type="submit"><i class="fa-solid fa-cart-shopping"></i></button>	
-                          </form>
-
-                        </div>
+                          <div class="row">
+                            <div class="col-6 cart">
+                              <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
+                                @csrf
+                                <p> <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"></p>
+                                <p>  {{$product->product_name  }}</p>
+                                <p>{{$product->categoryName}}</p>
+                                <p>{{$product->brandName}}</p>
+                                <p>{{$product->selling_price}}</p>
+                                <p>{{$product->Product_code}}</p>
+                                <button type="submit"><i class="fa-solid fa-cart-shopping"></i></button>	
+                              </form>
+                            </div>
                             <div class="card col-6 bg-warning" style="width: 18rem;">
                               <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
                                 @csrf
@@ -191,7 +183,7 @@
                                     </div>      
                                </form>
                             </div>
-                      </div>
+                          </div>
                     </div>							
                
                 </div>											
