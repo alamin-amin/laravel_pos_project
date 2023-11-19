@@ -36,25 +36,20 @@
                     <thead>
                         <tr>
                             <th>Orders #</th>											
-                            <th>Customer</th>
-                            <th>QTY</th>
-                            <th>Payment</th>
-                            <th>Total</th>
+                            <th>Customer</th> 
                             <th>Order Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($orderList as $list )
 
                         <tr>
-                            <td>{{ $list->invoice_no }}</a></td>
-                            <td>{{  $list->order_customer_id }}</td>
-                            <td>{{ $list->qty }}</td>
-                            <td>
-                                <span class="badge bg-success">{{$list->payment_type }}</span>
-                            </td>
-                            <td>{{ $list->total }}</td>
-                            <td>{{ $list->created_at }}</td>																				
+                            <td>{{ $list->id }}</td>
+                            <td>{{  $list->customer_id }}</td>
+                            <td>{{  $list->created_at }}</td>
+                            <td> <a href="{{ route('orders.orderView', $list->id)}}" class="pr-2 "><i class="fa-regular fa-eye"></i></a></td>
+                           												
                         </tr>
                         @endforeach
                     </tbody>

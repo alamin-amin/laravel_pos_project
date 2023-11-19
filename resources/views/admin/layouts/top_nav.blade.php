@@ -14,7 +14,7 @@
             <a href="{{ route('orders.index') }}" class="nav-link">Orders</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('orders.orderInvoice') }}" class="nav-link">About</a>
+            <a href="#" class="nav-link">About</a>
           </li>					
     </ul>
     <div class="navbar-nav pl-2">

@@ -25,4 +25,6 @@ class product extends Model
         'status',
         
     ] ;
+
+    
 }

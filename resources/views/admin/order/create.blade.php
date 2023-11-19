@@ -89,14 +89,13 @@
                               <hr>
                               <div class="pl-4  bg-light">
                                   <td> <span style="font-size:20px">Sub Total :</span> <input type="text" name="sub_total" value="{{ $subTotal }}" style="width:350px; border: none;"></td>
-                                 <p style="font-size:20px">Vat : 00.00</p>
                               </div>
                                 <hr>
                                 
                              
                               <div class="row">
-                                <div class="col-6">
-                                   <h4> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }}" style="width:100%; border: none;"></h4>
+                                <div class="col-6 pl-5">
+                                   <h4><i class="fa-regular fa-money-bill-1"></i> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }} TK " style="width:100%; border: none;"></h4>
                                 </div>
                                 <div class="col-6">
                                   <h4>Payment Method</h4>
@@ -123,7 +122,7 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                   	<th>Cart</th>			
+                                   	<th>Add to Cart</th>			
                                     <th>Product Name</th>
                                     <th>Images</th>
                                     <th>Category</th>
@@ -161,7 +160,7 @@
                               <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
                                 @csrf
                                 <p> <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"></p>
-                                <p>  {{$product->product_name  }}</p>
+                                <p>{{$product->product_name  }}</p>
                                 <p>{{$product->categoryName}}</p>
                                 <p>{{$product->brandName}}</p>
                                 <p>{{$product->selling_price}}</p>
@@ -191,8 +190,6 @@
         </div>
     </div>
     <!-- /.card -->
-
-
 
 
 {{-- customers add modal  --}}
@@ -240,54 +237,6 @@
     </div>
   </div>
 </div>
-
- {{-- Orders invoice  --}}
-
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="">
-        <h4 class="modal-title bg-info text-center " id="exampleModalLabel"> Customers Invoice</h4>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="{{ route('customers.store') }}">
-          @csrf
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Name : </label>
-                <input type="text" name="name" placeholder="Customer Name" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Email : </label>
-                <input type="text" name="email" placeholder="Email" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Phone Number : </label>
-                <input type="text" name="phone" placeholder=" Phone Number" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Address : </label>
-                <input type="text" name="address" placeholder="Address" class="form-control" id="recipient-name">
-              </div>
-              <div class="col-md-6">
-                <div class="mb-2">
-                    <label for="status" class="col-form-label">Status</label>
-                    <select name="status" id="recipient-name" class="form-control">
-                        <option value="1">Active</option>
-                        <option value="0">Block</option>
-                    </select>
-                  </div>
-              </div>	
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-               </div>
-        </form>
-      </div>
-     
-    </div>
-  </div>
-</div>
-
 </section>
 @endsection
 @section('customJs')

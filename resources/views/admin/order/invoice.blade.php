@@ -5,7 +5,9 @@
     <div class="container-fluid my-2">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Order: #4F3S8J</h1>
+                {{-- @foreach ( $orderList as $list ) --}}
+                 <h1> Order Id # </h1>
+                {{-- @endforeach --}}
             </div>
             <div class="col-sm-6 text-right">
                 <a href="orders.html" class="btn btn-primary">Back</a>
@@ -37,7 +39,7 @@
                                 <b>Invoice #007612</b><br>
                                 <br>
                                 <b>Order ID:</b> 4F3S8J<br>
-                                <b>Total:</b> 9560.40<br>
+                                <b>Total:</b> 9560.40 <br>
                                 <b>Status:</b> <span class="text-success">Delivered</span>
                                 <br>
                             </div>
@@ -47,79 +49,47 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th width="100">Price</th>
-                                    <th width="100">Qty</th>                                        
-                                    <th width="100">Total</th>
+                                    <th width="60">ID</th>
+                                    <th>Product Name</th>
+                                    <th>Invoice</th>
+                                     <th>QTY</th>
+                                    <th>Payment Type</th>
+                                    <th>Total</th>
                                 </tr>
+                  
                             </thead>
                             <tbody>
-                                {{-- @foreach ($invoiceLists as $invoiceList ) --}}
+                                @foreach ($orderItems as $orderItem )
                                 <tr>
-                                    <td>56</td>
-                                    <td>$10.00</td>                                        
-                                    <td>2</td>
-                                    <td>$20.00</td>
+                                    <td>{{ $orderItem->id }}</td>
+                                    <td>{{ $orderItem->product['product_name'] }}</td>
+                                    <td>{{ $orderItem->invoice_no }}</td>
+                                    <td>{{ $orderItem->qty }}</td>
+                                    <td>{{ $orderItem->payment_type }}</td>
+                                    <td>{{ $orderItem->total }}</td> 
                                 </tr>
-                                {{-- @endforeach --}}
-                                <tr>
-                                    <th colspan="3" class="text-right">Subtotal:</th>
-                                    <td>6000.00</td>
-                                </tr>
+                                @endforeach
                                 
                                 <tr>
-                                    <th colspan="3" class="text-right">Shipping:</th>
-                                    <td>8975.00</td>
+                                    <th colspan="3" class="text-right">Subtotal :</th>
+                                    <td>566</td>
                                 </tr>
                                 <tr>
-                                    <th colspan="3" class="text-right">Grand Total:</th>
+                                    <th colspan="3" class="text-right">Grand Total :</th>
                                     <td>876.00</td>
                                 </tr>
-                                
+                              
                             </tbody>
                         </table>								
                     </div>                            
                 </div>
             </div>
-            {{-- <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="h4 mb-3">Order Status</h2>
-                        <div class="mb-3">
-                            <select name="status" id="status" class="form-control">
-                                <option value="">Pending</option>
-                                <option value="">Shipped</option>
-                                <option value="">Delivered</option>
-                                <option value="">Cancelled</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary">Update</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="h4 mb-3">Send Inovice Email</h2>
-                        <div class="mb-3">
-                            <select name="status" id="status" class="form-control">
-                                <option value="">Customer</option>                                                
-                                <option value="">Admin</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <button class="btn btn-primary">Send</button>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
     <!-- /.card -->
 </section>
-
-
 @endsection
+
 @section('customJs')
   <script>
        

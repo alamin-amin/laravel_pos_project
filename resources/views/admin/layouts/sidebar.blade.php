@@ -43,7 +43,7 @@
                 <li class="nav-item">
                     <a href="{{route('products.index')}}" class="nav-link text-dark">
                         <i class="nav-icon fas fa-tag"></i>
-                        <p>Products</p>
+                        <p>Purchase Order</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -89,24 +89,11 @@
                     </a>
                 </li>	
                 <li class="nav-item">
-                    <a href="users.html" class="nav-link">
-                        <i class="nav-icon  fas fa-users"></i>
-                        <p>Users</p>
-                    </a>
-                </li>
-                
-                <li class="nav-item">
                     <a href="{{ route('employee.index') }}" class="nav-link">
                         <i class="fa-solid fa-user-tie "> </i> 
                         <p class="pl-2">Employee</p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages.html" class="nav-link">
-                        <i class="nav-icon  far fa-file-alt"></i>
-                        <p>Pages</p>
-                    </a>
-                </li>							
+                </li>						
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
