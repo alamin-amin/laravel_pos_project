@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\category;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\OrderCustomer;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,9 @@ class HomeController extends Controller
       $categoryCount = category:: count();
       $customerCount = Customer::count();
       $productCount = product::count();
+      $orderCount = OrderCustomer::count();
 
-      return view('admin.dashboard',compact('categoryCount','customerCount','productCount'));
+      return view('admin.dashboard',compact('categoryCount','customerCount','productCount','orderCount'));
       // $admin = Auth::guard('admin')->user();
       // echo 'Welcome'.$admin->name. '<a href="'.route('admin.logout').'">Logout</a>';
 

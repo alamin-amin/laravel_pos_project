@@ -17,8 +17,9 @@ class OrderController extends Controller
 
 
     public function orderView($id){
+       
         $orderItems = palceOrder::where('order_customer_id', $id)->with('product')->get();
-        return view('admin.order.invoice', compact('orderItems'));
+        return view('admin.order.invoice', compact('orderItems','invoiceSubTotal'));
     }
 
 
@@ -36,14 +37,14 @@ class OrderController extends Controller
                 ->join('products','carts.products_id','products.id')
                 ->select('products.*', 'carts.*')
                 ->get();
-                $subTotal = Cart::all()->where("products_id")->sum("total");
-           $customers = DB::table('customers')->get();
-            return view ('admin.order.create',compact('products','customers','cartData','subTotal'));
+                 $subTotal = Cart::all()->where("products_id")->sum("total");
+                 $customers = DB::table('customers')->get();
+                 return view ('admin.order.create',compact('products','customers','cartData','subTotal'));
        }
 
        public function destroy($cart_id){
          Cart::where('id',$cart_id)->delete();
-        return redirect()->back();
+         return redirect()->back();
        }
 
        public function update(Request $request, $cart_id){

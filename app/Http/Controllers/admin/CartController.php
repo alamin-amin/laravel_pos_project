@@ -18,38 +18,14 @@ class CartController extends Controller
       $check= Cart::where("products_id",$id)->increment('qty');
       return redirect()->back();
     }else{
-    $cart= new Cart();
-    $cart->products_id = $productData["id"];      
-    $cart->qty = $request["qty"];
-    $cart->Price = $productData["selling_price"];
-     $cart->total = $request["qty"]*  $productData["selling_price"];
-     $cart->sub_total = $cart->total ;
-
-    $cart->save();
-    return redirect()->back();
+        $cart= new Cart();
+        $cart->products_id = $productData["id"];      
+        $cart->qty       = $request["qty"];
+        $cart->Price     = $productData["selling_price"];
+        $cart->total     = $request["qty"]*  $productData["selling_price"];
+        $cart->sub_total = $cart->total ;
+        $cart->save();
+        return redirect()->back();
     }
-
-    
-
-
-
-
-      // $check= Cart::where("products_id",$id)->first();
-      // if($check){
-      //    Cart::where("products_id",$id)->increment('qty');
-      //    return redirect()->back();
-      // }else{
-      //    Cart::insert([
-      //       'products_id'=>$id,
-      //       'qty'=>1,
-      //       'Price'=>$request->selling_price,
-      //       'total'=>$request->total,
-      //       'sub_total'=>$request->sub_total,
-      //    ]); 
-      // }
-      // return redirect()->back();
-
  }
- 
-
 }

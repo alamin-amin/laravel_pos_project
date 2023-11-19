@@ -72,7 +72,7 @@
                                 
                                 <tr>
                                     <th colspan="3" class="text-right">Subtotal :</th>
-                                    <td>566</td>
+                                    <td>{{ $invoiceSubTotal}}</td>
                                 </tr>
                                 <tr>
                                     <th colspan="3" class="text-right">Grand Total :</th>
