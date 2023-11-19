@@ -97,9 +97,11 @@ Route::group(['prefix' => 'admin'],function(){
         // Order route..................
         Route::get('/orders',[OrderController::class,'index'])->name('orders.index');
         Route::get('/orders/create',[OrderController::class,'create'])->name('orders.create');
-        // Route::get('/orders-invoice',[OrderController::class,'orderInvoice'])->name('orders.orderInvoice');
         Route::get('/orders-view/{id}',[OrderController::class,'orderView'])->name('orders.orderView');
-        
+
+
+        Route::get('/generate-pdf/{id}',[OrderController::class,'orderInvoice'])->name('generate-pdf.orderInvoice');
+        Route::get('/download-pdf',[OrderController::class,'orderInvoice'])->name('download-pdf.orderInvoice');
 
         Route::post('/carts/{cart}/id',[CartController::class,'addToCart'])->name('carts.addToCart');
         Route::get('/carts/{cart}/id',[OrderController::class,'destroy'])->name('carts.delete');

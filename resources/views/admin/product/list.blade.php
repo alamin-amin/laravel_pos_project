@@ -47,7 +47,8 @@
                             <th>Images</th>
                             <th>QTY</th>
                             <th>Description</th>
-                            <th>Product_code</th>
+                            <th>Product code</th>
+                            <th>Product Price</th>
                             <th>Status</th>
                             <th width="100">Action</th>
                         </tr>
@@ -65,6 +66,7 @@
                             <td>{{ $product ->qty }}</td>
                             <td>{{ $product ->description }}</td>
                             <td>{{ $product ->Product_code }}</td>
+                            <td>{{ $product ->selling_price }}</td>
                             
                             <td>
                                 @if ($product->status==1)

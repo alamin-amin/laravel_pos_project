@@ -3,11 +3,13 @@
 
 <section class="content-header">					
     <div class="container-fluid my-2">
+         
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Orders List</h1>
+                  <h1>  <i class="fa-solid fa-sitemap"></i> Orders List </h1>
             </div>
             <div class="col-sm-6 text-right">
+                <a href="{{ route('orders.create') }}" class="btn btn-primary">Create New Order</a>
             </div>
         </div>
     </div>

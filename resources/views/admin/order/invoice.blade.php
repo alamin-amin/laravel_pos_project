@@ -10,7 +10,10 @@
                 {{-- @endforeach --}}
             </div>
             <div class="col-sm-6 text-right">
-                <a href="orders.html" class="btn btn-primary">Back</a>
+                <a href="" class="btn btn-info mr-3"> <i class="fa-solid fa-print"></i></a>
+                <a href="orders.html" class="btn btn-primary mr-3"><i class="fa-solid fa-file-arrow-down"></i></a>
+                <a href="{{ route('orders.index') }}" class="btn btn-primary">Back</a>
+               
             </div>
         </div>
     </div>
@@ -29,12 +32,12 @@
                             <h1 class="h5 mb-3">Shop Address</h1>
                             <address>
                                 <strong>Alamin</strong><br>
-                                795 Folsom Ave, Mohammadpur<br>
-                                Dkhaka, Bangladesh<br>
+                                795 Folsom Ave, Mohammadpur, Dhaka.<br>
                                 Phone: 01710034645 <br>
-                                Email: alamin@gmail.com.com
+                               
                             </address>
-                            </div>  
+                            </div> 
+                             
                             <div class="col-sm-6 text-right pr-5 invoice-col">
                                 <b>Invoice #007612</b><br>
                                 <br>
@@ -74,10 +77,10 @@
                                     <th colspan="3" class="text-right">Subtotal :</th>
                                     <td>{{ $invoiceSubTotal}}</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <th colspan="3" class="text-right">Grand Total :</th>
                                     <td>876.00</td>
-                                </tr>
+                                </tr> --}}
                               
                             </tbody>
                         </table>								
@@ -86,6 +89,7 @@
             </div>
         </div>
     </div>
+  
     <!-- /.card -->
 </section>
 @endsection

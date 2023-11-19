@@ -52,6 +52,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-2">
+                                    <label for="name">Product Price</label>
+                                    <input type="text" name ="selling_price" value="{{ $product ->selling_price }}" id ="address" class="form-control" placeholder="Address">
+                                    <p></p>	
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-2">
                                     <label for="status">Status</label>
                                     <select name="status" id="status" class="form-control">
                                         <option {{ ($product->status ==1) ?'selected': '' }} value="1">Active</option>
