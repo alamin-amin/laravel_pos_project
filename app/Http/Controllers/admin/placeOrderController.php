@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\OrderCustomer;
 use App\Models\orderItem;
 use App\Models\palceOrder;
+use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -31,8 +32,22 @@ class placeOrderController extends Controller
                 $placeOrder->total = $cart->total;
                 $placeOrder->sub_total = $cart->sub_total;
                 $placeOrder->qty = $cart->qty;
-                $placeOrder->save();    
+                
+                $placeOrder->save(); 
+
+                $up =product::find($placeOrder->product_id);
+                if($up->qty>=$placeOrder->qty){
+                  $up->qty = $up->qty-$placeOrder->qty;
+
+                }else{
+                  return redirect()->back()->with('error','product updated successful!');
+                }
+                $up->save();
+                
+                
           }
+
+
 
           Cart::truncate();
           return redirect()->back();

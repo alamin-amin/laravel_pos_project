@@ -5,6 +5,7 @@ use App\Models\Cart;
 use App\Models\palceOrder;
 use App\Http\Controllers\Controller;
 use App\Models\OrderCustomer;
+use App\Models\product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -20,6 +21,8 @@ class OrderController extends Controller
     public function orderView($id){
         $invoiceSubTotal = palceOrder::all()->where("order_customer_id")->sum('sub_total');
         $orderItems = palceOrder::where('order_customer_id', $id)->with('product')->get();
+
+        
         return view('admin.order.invoice', compact('orderItems','invoiceSubTotal'));
     }
 

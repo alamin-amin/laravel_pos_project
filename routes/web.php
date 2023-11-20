@@ -100,8 +100,8 @@ Route::group(['prefix' => 'admin'],function(){
         Route::get('/orders-view/{id}',[OrderController::class,'orderView'])->name('orders.orderView');
 
 
-        Route::get('/generate-pdf/{id}',[OrderController::class,'orderInvoice'])->name('generate-pdf.orderInvoice');
-        Route::get('/download-pdf',[OrderController::class,'orderInvoice'])->name('download-pdf.orderInvoice');
+        // Route::get('/generate-pdf/{id}',[OrderController::class,'orderInvoice'])->name('generate-pdf.orderInvoice');
+        // Route::get('/download-pdf',[OrderController::class,'orderInvoice'])->name('download-pdf.orderInvoice');
 
         Route::post('/carts/{cart}/id',[CartController::class,'addToCart'])->name('carts.addToCart');
         Route::get('/carts/{cart}/id',[OrderController::class,'destroy'])->name('carts.delete');

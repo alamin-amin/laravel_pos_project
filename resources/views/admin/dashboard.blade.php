@@ -103,7 +103,7 @@
                 <div class="col-lg-4 col-6">							
                     <div class="small-box card d-flex" style="background-color: #75a57b">
                         <div class="d-flex pt-2 pl-3" style="font-size: 44px">
-                            <i class="fa-solid fa-sitemap"></i> <span style="font-size: 24px; padding-left:23px">435646 TK</span></i>
+                            <i class="fa-solid fa-sitemap"></i> <span style="font-size: 24px; padding-left:23px"> {{  $totalSale  }} TK</span></i>
                         </div>
                         <div class=" d-flex inner">
                             <h4 class="pl-3">Tota sale</h4>

@@ -10,10 +10,9 @@
                 {{-- @endforeach --}}
             </div>
             <div class="col-sm-6 text-right">
-                <a href="" class="btn btn-info mr-3"> <i class="fa-solid fa-print"></i></a>
+                <button onclick="window.print()" class="btn btn-primary mr-3"><i class="fa-solid fa-print"></i></button>
                 <a href="orders.html" class="btn btn-primary mr-3"><i class="fa-solid fa-file-arrow-down"></i></a>
                 <a href="{{ route('orders.index') }}" class="btn btn-primary">Back</a>
-               
             </div>
         </div>
     </div>
@@ -41,8 +40,8 @@
                             <div class="col-sm-6 text-right pr-5 invoice-col">
                                 <b>Invoice #007612</b><br>
                                 <br>
-                                <b>Order ID:</b> 4F3S8J<br>
-                                <b>Total:</b> 9560.40 <br>
+                                <b>Name :</b> Rubel Sikder<br>
+                                
                                 <b>Status:</b> <span class="text-success">Delivered</span>
                                 <br>
                             </div>
@@ -62,6 +61,9 @@
                   
                             </thead>
                             <tbody>
+                                @php
+                                    $total = 0;
+                                @endphp
                                 @foreach ($orderItems as $orderItem )
                                 <tr>
                                     <td>{{ $orderItem->id }}</td>
@@ -71,17 +73,14 @@
                                     <td>{{ $orderItem->payment_type }}</td>
                                     <td>{{ $orderItem->total }}</td> 
                                 </tr>
+                                @php
+                                    $total = $total+$orderItem->total
+                                @endphp
                                 @endforeach
-                                
                                 <tr>
-                                    <th colspan="3" class="text-right">Subtotal :</th>
-                                    <td>{{ $invoiceSubTotal}}</td>
+                                    <th colspan="3" class="text-right"><h3> Subtotal = </h3></th>
+                                    <td> <h3>{{ $total}} TK </h3></td>
                                 </tr>
-                                {{-- <tr>
-                                    <th colspan="3" class="text-right">Grand Total :</th>
-                                    <td>876.00</td>
-                                </tr> --}}
-                              
                             </tbody>
                         </table>								
                     </div>                            
@@ -96,6 +95,7 @@
 
 @section('customJs')
   <script>
-       
+
+
     </script>
 @endsection
