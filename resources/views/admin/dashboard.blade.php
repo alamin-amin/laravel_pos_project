@@ -106,7 +106,7 @@
                             <i class="fa-solid fa-sitemap"></i> <span style="font-size: 24px; padding-left:23px"> {{  $totalSale  }} TK</span></i>
                         </div>
                         <div class=" d-flex inner">
-                            <h4 class="pl-3">Tota sale</h4>
+                            <h4 class="pl-3">Total sale</h4>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
