@@ -21,7 +21,9 @@ class HomeController extends Controller
       $orderCount = OrderCustomer::count();
       // $totalSale = palceOrder::where('updated_at')->sum('total');
       $totalSale = palceOrder::sum('total');
-      return view('admin.dashboard',compact('categoryCount','customerCount','productCount','orderCount','totalSale'));
+      $totalQty = product::sum('qty');
+      $todaySale = palceOrder::where('date')->sum('total');
+      return view('admin.dashboard',compact('categoryCount','customerCount','productCount','orderCount','totalSale','totalQty','todaySale'));
 
       
       // $admin = Auth::guard('admin')->user();

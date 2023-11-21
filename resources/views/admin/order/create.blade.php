@@ -98,6 +98,10 @@
                                 <div class="col-6 pl-5">
                                    <h4><i class="fa-regular fa-money-bill-1"></i> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }} TK " style="width:100%; border: none;"></h4>
                                 </div>
+                                <div class="mb-2">
+                                  <input type="hidden" value="{{ date('d-m-y') }}" name ="date" id ="phone" class="form-control" placeholder="Enter your phone number">                         	
+                                </div>
+    
                                 <div class="col-6">
                                   <h4>Payment Method</h4>
                                   <label for="payment"><i class="fa-solid fa-sack-dollar"></i> Hand Cash
@@ -147,9 +151,9 @@
                                     <td>
                                         <img src="/product_image/{{$product ->product_image}}" style="height: 40px;width:50px;"> 
                                     </td>
-                                    @if('error')
+                                    {{-- @if('error')
                                       not
-                                    @endif
+                                    @endif --}}
                                     <td>{{$product->qty}}</td>
                                     <td>{{$product->selling_price}}</td>                                   
                                     <td>{{$product->brandName}}</td>
@@ -159,23 +163,23 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        
+                         {{-- ======== card product======== --}}
                           <div class="row">
                             @foreach ($products as $product )
-                            <div class="col-6">
-                              <div class="card bg-warning m-1" >
+                            <div class="col-3" style="min-height: 50px">
+                              <div class="card m-1" style="background-color: rgb(245, 247, 127)">
                                 <form action="{{ route('carts.addToCart',$product->id) }}" method="post">
                                   @csrf
-                                  <p> <img src="/product_image/{{$product ->product_image}}" style="height: 100px;width:100%;"></p>
-                                    <div class=" ">
-                                      <h5>Product : {{$product->product_name  }}</h5>
+                                  <p> <img src="/product_image/{{$product ->product_image}}" style="height: 80px;width:100%;"></p>
+                                    <div class="pl-2 " style="font-size: 12px ; line-hight:2px">
+                                      <h5> {{$product->product_name  }}</h5>
                                       <p> Brand : {{$product->brandName}}</p>
                                       <p class=""> Price : {{$product->selling_price}}</p>
                                     </div>
-                                      <div class="pb-3">
+                                    <div class="pb-1 pl-1">
                                         <button type="submit" class="btn btn-success"><i class="fa-solid fa-cart-shopping"></i></button>
                                         <input type="number" value="1" name="qty" style="width: 40px">
-                                      </div>      
+                                    </div>      
                                  </form>
                               </div>
                             </div>

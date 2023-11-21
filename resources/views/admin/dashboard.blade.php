@@ -35,12 +35,28 @@
                 </div>
             </div>
             <div class="col-lg-4 col-6">							
-                <div class="small-box card d-flex" style="background-color: #54b58e">
+                <div class="small-box card d-flex" style="background-color: #41f158">
+                    <div class="d-flex pt-2 pl-3" style="font-size: 44px">
+                        <i class="fa-solid fa-sitemap"></i> <span style="font-size: 24px; padding-left:23px"> {{  $totalSale  }} TK</span></i>
+                    </div>
+                    <div class=" d-flex inner">
+                        <h4 class="pl-3">Total sale</h4>
+                        <span class="pl-5"><i class="fa-solid fa-weight-scale"></i> Today sale :  {{ $todaySale }} TK</span>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{{ route('orders.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">							
+                <div class="small-box card " style="background-color: #54b58e">
                     <div class="d-flex pt-2 pl-3" style="font-size: 44px">
                         <i class="fa-solid fa-store"></i> <span style="font-size: 24px; padding-left:23px">{{$productCount}}</span></i>
                     </div>
                     <div class=" d-flex inner">
-                        <h4 class="pl-3">Total Products</h4>
+                            <h4 class="pl-3">Total Products</h4>
+                            <span class="pl-5"><i class="fa-brands fa-quinscape"></i></i> Quantity :  {{ $totalQty }}</span>            
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -98,23 +114,6 @@
                         <a href="{{ route('expenses.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-
-
-                <div class="col-lg-4 col-6">							
-                    <div class="small-box card d-flex" style="background-color: #75a57b">
-                        <div class="d-flex pt-2 pl-3" style="font-size: 44px">
-                            <i class="fa-solid fa-sitemap"></i> <span style="font-size: 24px; padding-left:23px"> {{  $totalSale  }} TK</span></i>
-                        </div>
-                        <div class=" d-flex inner">
-                            <h4 class="pl-3">Tota sale</h4>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="{{ route('orders.index') }}" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                
         </div>
     </div>					
     <!-- /.card -->

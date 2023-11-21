@@ -19,21 +19,9 @@ class OrderController extends Controller
 
 
     public function orderView($id){
-        $invoiceSubTotal = palceOrder::all()->where("order_customer_id")->sum('sub_total');
         $orderItems = palceOrder::where('order_customer_id', $id)->with('product')->get();
-
-        
-        return view('admin.order.invoice', compact('orderItems','invoiceSubTotal'));
+        return view('admin.order.invoice', compact('orderItems'));
     }
-
-
-    public function orderInvoice($id){
-        // $data ='Customer.pdf';
-        // $pdf = Pdf::loadView('admin.order.invoice',compact('data'));
-        // return $pdf->stream('XyZ-invoice');
-
-    }
-
 
     public function create(){
             $products = DB::table('products')

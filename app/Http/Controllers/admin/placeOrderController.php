@@ -29,10 +29,10 @@ class placeOrderController extends Controller
                 $placeOrder->order_customer_id = $customer_id;
                 $placeOrder->invoice_no =$orderId;
                 $placeOrder->payment_type = $request->payment_type;
+                $placeOrder->date = $request->date;
                 $placeOrder->total = $cart->total;
                 $placeOrder->sub_total = $cart->sub_total;
                 $placeOrder->qty = $cart->qty;
-                
                 $placeOrder->save(); 
 
                 $up =product::find($placeOrder->product_id);
@@ -42,13 +42,8 @@ class placeOrderController extends Controller
                 }else{
                   return redirect()->back()->with('error','product updated successful!');
                 }
-                $up->save();
-                
-                
+                $up->save();   
           }
-
-
-
           Cart::truncate();
           return redirect()->back();
     }
