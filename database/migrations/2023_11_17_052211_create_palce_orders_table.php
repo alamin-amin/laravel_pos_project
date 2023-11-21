@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('order_customer_id');
             $table->string('invoice_no');
             $table->string('payment_type');
+            $table->string('date');
             $table->string('total');
             $table->string('sub_total');
             $table->integer('qty');
