@@ -36,7 +36,7 @@ class placeOrderController extends Controller
                 $placeOrder->save(); 
 
                 $up =product::find($placeOrder->product_id);
-                if($up->qty>=$placeOrder->qty){
+                if($up->qty>= $placeOrder->qty){
                   $up->qty = $up->qty-$placeOrder->qty;
 
                 }else{

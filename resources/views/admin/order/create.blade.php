@@ -99,7 +99,7 @@
                                    <h4><i class="fa-regular fa-money-bill-1"></i> Total Pay <input type="text" name="sub_total" value="{{  $subTotal }} TK " style="width:100%; border: none;"></h4>
                                 </div>
                                 <div class="mb-2">
-                                  <input type="hidden" value="{{ date('d-m-y') }}" name ="date" id ="phone" class="form-control" placeholder="Enter your phone number">                         	
+                                  <input type="hidden" value="{{ date('d-m-y') }}" name ="date" class="form-control">                         	
                                 </div>
     
                                 <div class="col-6">

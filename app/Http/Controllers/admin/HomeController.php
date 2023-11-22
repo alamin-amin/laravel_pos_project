@@ -19,7 +19,6 @@ class HomeController extends Controller
       $customerCount = Customer::count();
       $productCount = product::count();
       $orderCount = OrderCustomer::count();
-      // $totalSale = palceOrder::where('updated_at')->sum('total');
       $totalSale = palceOrder::sum('total');
       $totalQty = product::sum('qty');
       $todaySale = palceOrder::where('date')->sum('total');
